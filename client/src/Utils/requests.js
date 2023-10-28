@@ -609,6 +609,13 @@ export const getAuthorizedWorkspaces = async () =>
     auth: true,
     error: 'Unable to retrive cc worksapces',
   });
+  export const getAssessments = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments`,
+    auth: true,
+    error: 'Unable to retrive assessments',
+  });
 
 export const getAuthorizedWorkspace = async (id) =>
   makeRequest({
@@ -664,6 +671,13 @@ export const deleteAuthorizedWorkspace = async (id) =>
     auth: true,
     error: 'Unable to delete cc workspace',
   });
+  export const deleteAssessment = async (id) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/assessment/${id}`,
+    auth: true,
+    error: 'Unable to delete assessment',
+  });
 
 export const getClassroomWorkspace = async (id) =>
   makeRequest({
@@ -671,4 +685,12 @@ export const getClassroomWorkspace = async (id) =>
     path: `${server}/classroom/workspaces/${id}`,
     auth: true,
     error: 'Unable to retrive classroom workspaces',
+  });
+
+  export const getAssessment = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/classroom/assessments/${id}`,
+    auth: true,
+    error: 'Unable to retrive classroom assessments',
   });

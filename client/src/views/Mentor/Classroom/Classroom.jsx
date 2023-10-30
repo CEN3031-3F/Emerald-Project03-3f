@@ -6,6 +6,7 @@ import NavBar from '../../../components/NavBar/NavBar';
 import Roster from './Roster/Roster';
 import Home from './Home/Home';
 import SavedWorkSpaceTab from '../../../components/Tabs/SavedWorkspaceTab';
+import AssessmentsTab from '../../../components/Tabs/AssessmentsTab';
 import { useSearchParams, useParams } from 'react-router-dom';
 
 const { TabPane } = Tabs;
@@ -46,6 +47,13 @@ export default function Classroom({
         </TabPane>
         <TabPane tab='Saved Workspaces' key='workspace'>
           <SavedWorkSpaceTab
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+            classroomId={id}
+          />
+        </TabPane>
+        <TabPane tab='Assessments' key='assessments'>
+          <AssessmentsTab
             searchParams={searchParams}
             setSearchParams={setSearchParams}
             classroomId={id}

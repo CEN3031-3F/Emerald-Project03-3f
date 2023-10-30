@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Assessment.css';
+import './StudentAssessment.css';
 
-function Assessment() {
+function StudentAssessment() {
   const questions = [
     {
       text: 'What is an electrical circuit?',
@@ -62,4 +62,4 @@ function Assessment() {
   );
 }
 
-export default Assessment;
+export default StudentAssessment;

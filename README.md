@@ -63,6 +63,8 @@ The development environment is composed of five servers. The first one is run wi
 
 ### Staging
 
+### random comment
+
 #### Structure
 
 The staging environment is a Heroku app. It is composed of a web dyno, compile dyno, Heroku Postgres add-on, and Heroku Redis add-on.

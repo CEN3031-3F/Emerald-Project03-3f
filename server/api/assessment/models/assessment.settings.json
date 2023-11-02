@@ -10,6 +10,7 @@
     "timestamps": true,
     "draftAndPublish": true
   },
+<<<<<<< Updated upstream
   "attributes": {
     "name": {
       "type": "string"
@@ -25,4 +26,7 @@
       "via": "assessments"
     }
   }
+=======
+  "attributes": {}
+>>>>>>> Stashed changes
 }

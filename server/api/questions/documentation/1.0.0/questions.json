@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/assessments": {
+    "/questions": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the questions's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve questions document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Assessment"
+                    "$ref": "#/components/schemas/Questions"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Assessment"
+          "Questions"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new questions record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve questions document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Assessment"
+                  "$ref": "#/components/schemas/Questions"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Assessment"
+          "Questions"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAssessment"
+                "$ref": "#/components/schemas/NewQuestions"
               }
             }
           }
         }
       }
     },
-    "/assessments/count": {
+    "/questions/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of questions documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve questions document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Assessment"
+          "Questions"
         ],
         "parameters": []
       }
     },
-    "/assessments/{id}": {
+    "/questions/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one questions record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve questions document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Assessment"
+                  "$ref": "#/components/schemas/Questions"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Assessment"
+          "Questions"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single questions record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve questions document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Assessment"
+                  "$ref": "#/components/schemas/Questions"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Assessment"
+          "Questions"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAssessment"
+                "$ref": "#/components/schemas/NewQuestions"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single questions record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single questions based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Assessment"
+          "Questions"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Assessment": {
+      "Questions": {
         "required": [
           "id"
         ],
@@ -522,106 +522,60 @@
           "id": {
             "type": "string"
           },
-<<<<<<< Updated upstream
-          "name": {
+          "MC_3": {
+            "type": "string",
+            "enum": [
+              "one",
+              "two",
+              "three"
+            ]
+          },
+          "MC_4": {
+            "type": "string",
+            "enum": [
+              "one",
+              "two",
+              "three",
+              "four"
+            ]
+          },
+          "FreeResponse": {
             "type": "string"
           },
-          "description": {
-            "type": "string"
+          "T_F": {
+            "type": "boolean"
           },
-          "template": {
-            "type": "string"
-          },
-          "classroom": {
-            "required": [
-              "id",
-              "code"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "school": {
-                "type": "string"
-              },
-              "sessions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "mentors": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "students": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "code": {
-                "type": "string"
-              },
-              "grade": {
-                "type": "string"
-              },
-              "selections": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "authorized_workspaces": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "assessments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-=======
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewAssessment": {
+      "NewQuestions": {
         "properties": {
-<<<<<<< Updated upstream
-          "name": {
+          "MC_3": {
+            "type": "string",
+            "enum": [
+              "one",
+              "two",
+              "three"
+            ]
+          },
+          "MC_4": {
+            "type": "string",
+            "enum": [
+              "one",
+              "two",
+              "three",
+              "four"
+            ]
+          },
+          "FreeResponse": {
             "type": "string"
           },
-          "description": {
-            "type": "string"
+          "T_F": {
+            "type": "boolean"
           },
-          "template": {
-            "type": "string"
-          },
-          "classroom": {
-            "type": "string"
-          },
-=======
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -638,7 +592,7 @@
   },
   "tags": [
     {
-      "name": "Assessment"
+      "name": "Questions"
     }
   ]
 }

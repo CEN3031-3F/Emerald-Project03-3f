@@ -52,8 +52,13 @@ export default function Classroom({
             classroomId={id}
           />
         </TabPane>
+<<<<<<< Updated upstream
         <TabPane tab='Assessments' key='assessments'>
           <AssessmentsTab
+=======
+        <TabPane tab='Assessments' key='assessment'>
+          <SavedWorkSpaceTab
+>>>>>>> Stashed changes
             searchParams={searchParams}
             setSearchParams={setSearchParams}
             classroomId={id}

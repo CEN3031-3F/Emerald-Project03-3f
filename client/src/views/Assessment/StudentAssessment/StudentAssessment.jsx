@@ -15,6 +15,10 @@ function StudentAssessment() {
       text: 'What is the purpose of a switch in an electrical circuit?',
       options: ['To slow down the flow of electricity', 'To open or close the circuit, controlling the flow of electricity ', 'To make the circuit brighter'],
     },
+    {
+      text: 'What is an electrical circuit?',
+      options: ['A type of battery', 'A closed loop of wires or components through which electricity flows ', ' A type of light bulb'],
+    },
   ];
 
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));

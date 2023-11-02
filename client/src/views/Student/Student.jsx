@@ -61,6 +61,9 @@ function Student() {
             </div>
           )}
         </ul>
+        <div id='header'>
+          <div>Select Your Assessment</div>
+        </div>
       </div>
     </div>
   );

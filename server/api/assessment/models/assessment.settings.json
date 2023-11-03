@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assessments",
+  "info": {
+    "name": "Assessment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "questions": {
+      "collection": "questions"
+    }
+  }
+}

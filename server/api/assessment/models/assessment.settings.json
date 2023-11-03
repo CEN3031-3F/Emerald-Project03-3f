@@ -10,23 +10,9 @@
     "timestamps": true,
     "draftAndPublish": true
   },
-<<<<<<< Updated upstream
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "template": {
-      "type": "string"
-    },
-    "classroom": {
-      "model": "classroom",
-      "via": "assessments"
+    "questions": {
+      "collection": "questions"
     }
   }
-=======
-  "attributes": {}
->>>>>>> Stashed changes
 }

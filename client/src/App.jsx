@@ -19,7 +19,7 @@ import StudentLogin from './views/StudentLogin/StudentLogin';
 import ForgetPassword from './views/TeacherLogin/ForgetPassword';
 import ResetPassword from './views/TeacherLogin/ResetPassword';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
-import StudentAssessment from './views/Assessment/StudentAssessment/StudentAssessment';
+import Assessment from './views/Assessment/Assessment';
 import TeacherAssessment from './views/Assessment/TeacherAssessment/TeacherAssessment';
 
 const App = () => {
@@ -116,7 +116,7 @@ const App = () => {
         />
         <Route path='/bugreport' element={<BugReport />} />
         <Route path='*' element={<NotFound/>} />
-        <Route path='/assessment/student' element={<StudentAssessment />} />
+        <Route path='/assessment' element={<Assessment />} />
         <Route path='/assessment/teacher' element={<TeacherAssessment />} />
       </Routes>
     </div>

@@ -14,15 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-<<<<<<< Updated upstream
-<<<<<<< HEAD
     "x-generation-date": "10/26/2023 11:55:17 PM"
-=======
-    "x-generation-date": "10/28/2023 8:55:09 PM"
->>>>>>> Nikolas
-=======
-    "x-generation-date": "11/02/2023 6:01:35 PM"
->>>>>>> Stashed changes
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12964,7 +12956,6 @@
           "id": {
             "type": "string"
           },
-<<<<<<< Updated upstream
           "name": {
             "type": "string"
           },
@@ -13039,8 +13030,6 @@
               }
             }
           },
-=======
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -13049,7 +13038,6 @@
       },
       "NewAssessment": {
         "properties": {
-<<<<<<< Updated upstream
           "name": {
             "type": "string"
           },
@@ -13062,8 +13050,6 @@
           "classroom": {
             "type": "string"
           },
-=======
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"

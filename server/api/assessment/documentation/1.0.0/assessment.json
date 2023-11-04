@@ -522,7 +522,6 @@
           "id": {
             "type": "string"
           },
-<<<<<<< Updated upstream
           "name": {
             "type": "string"
           },
@@ -597,8 +596,6 @@
               }
             }
           },
-=======
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -607,7 +604,6 @@
       },
       "NewAssessment": {
         "properties": {
-<<<<<<< Updated upstream
           "name": {
             "type": "string"
           },
@@ -620,8 +616,6 @@
           "classroom": {
             "type": "string"
           },
-=======
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"

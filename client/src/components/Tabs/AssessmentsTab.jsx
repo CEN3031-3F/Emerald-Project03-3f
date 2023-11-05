@@ -105,7 +105,7 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
     return (
         <div>
           <div id='page-header'>
-            <h1>Saved Worksapces</h1>
+            <h1>Saved Assessments</h1>
           </div>
           <div
             id='content-creator-table-container'

@@ -694,3 +694,19 @@ export const getClassroomWorkspace = async (id) =>
     auth: true,
     error: 'Unable to retrive classroom assessments',
   });
+
+  // I used the addStudent as a template. I want the teacher to be able to hit an "add assessment" icon in the mentor classroom view's assessment
+  // tab, and then they will be prompted to add questions an when they hit save, it will save the questions to the assessment and the assessment
+  // to the database.
+  export const addAssessment = async (name, questions, classroom) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/assessments`,
+    data: {
+      name: name,
+      questions: questions,
+      classroom: classroom,
+    },
+    auth: true,
+    error: 'Failed to add assessment.',
+  });

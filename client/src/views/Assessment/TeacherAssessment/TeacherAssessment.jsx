@@ -4,18 +4,6 @@ import './TeacherAssessment.css';
 
 function TeacherAssessment() {
   const [questions, setQuestions] = useState([
-    {
-      text: 'What is an electrical circuit?',
-      options: ['A type of battery', 'A closed loop of wires or components through which electricity flows ', ' A type of light bulb'],
-      correctOption: 'b',
-      type: "multipleChoice"
-    },
-    {
-      text: 'Name two essential components of a simple electrical circuit.',
-      options: ['Paper and tape', 'Wires and a light bulb', 'Rocks and sticks'],
-      correctOption: 'b',
-      type: "multipleChoice"
-    },
   ]);
 
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));

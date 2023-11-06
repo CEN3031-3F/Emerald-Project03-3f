@@ -1,9 +1,11 @@
 import {Modal, Button} from 'antd';
 import React, {useState} from "react";
+import AddAssessment from './AddAssessment';
+
 
 export default function AddAssessmentModal(props) {
     const [visible, setVisible] = useState(false);
-    const {classroomId} = props;
+    const {classroomId, addAssessmentToTable} = props;
 
     const showModal = () => {
         setVisible(true)
@@ -20,7 +22,7 @@ export default function AddAssessmentModal(props) {
     return (
         <div id='link'>
             <button id='link' onClick={showModal}>
-                <i className="fa fa-user-plus"/>
+                <i className="fa fa-plus"/>
             </button>
             <Modal
                 title={"Add an assessment to your classroom"}
@@ -33,8 +35,7 @@ export default function AddAssessmentModal(props) {
                     </Button>,
                 ]}
             >
-            
-
+            <AddAssessment addAssessmentToTable={addAssessmentToTable} classroomId={classroomId}/>
             </Modal>
         </div>
     );

@@ -64,6 +64,13 @@ function Student() {
         <div id='header'>
           <div>Select Your Assessment</div>
         </div>
+        <ul>
+          <a href="http://localhost:3000/assessment/student">
+            <div id='list-item-wrapper'>
+              <li>{`Assessment 1`}</li>
+            </div>
+          </a>
+        </ul>
       </div>
     </div>
   );

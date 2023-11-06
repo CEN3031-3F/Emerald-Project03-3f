@@ -6,7 +6,8 @@ import AddAssessment from './AddAssessment';
 export default function AddAssessmentModal(props) {
     const [visible, setVisible] = useState(false);
     const {classroomId, addAssessmentToTable} = props;
-
+    const [questions, setQuestions] = useState([]);
+    
     const showModal = () => {
         setVisible(true)
     };
@@ -16,6 +17,8 @@ export default function AddAssessmentModal(props) {
     };
 
     const handleOk = () => {
+        // TODO: send questions to database
+        console.log(questions);
         setVisible(false)
     };
 
@@ -35,7 +38,7 @@ export default function AddAssessmentModal(props) {
                     </Button>,
                 ]}
             >
-            <AddAssessment addAssessmentToTable={addAssessmentToTable} classroomId={classroomId}/>
+            <AddAssessment questions={questions} setQuestions={setQuestions} addAssessmentToTable={addAssessmentToTable} classroomId={classroomId}/>
             </Modal>
         </div>
     );

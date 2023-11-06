@@ -21,6 +21,7 @@ import ResetPassword from './views/TeacherLogin/ResetPassword';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
 import Assessment from './views/Assessment/Assessment';
 import TeacherAssessment from './views/Assessment/TeacherAssessment/TeacherAssessment';
+import StudentAssessment from './views/Assessment/StudentAssessment/StudentAssessment.jsx';
 
 const App = () => {
   return (
@@ -118,6 +119,7 @@ const App = () => {
         <Route path='*' element={<NotFound/>} />
         <Route path='/assessment' element={<Assessment />} />
         <Route path='/assessment/teacher' element={<TeacherAssessment />} />
+        <Route path='/assessment/student' element={<StudentAssessment />} />
       </Routes>
     </div>
   );

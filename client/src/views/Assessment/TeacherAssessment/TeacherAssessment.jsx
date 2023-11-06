@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import QuestionPopup from './QuestionPopup';
 import './TeacherAssessment.css';
 
-function TeacherAssessment() {
-  const [questions, setQuestions] = useState([
-  ]);
+function TeacherAssessment({questions, setQuestions}) {
 
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
   const [questionPopupType, setQuestionPopupType] = useState(null);

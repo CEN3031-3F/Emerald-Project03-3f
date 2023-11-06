@@ -5,12 +5,11 @@ import TeacherAssessment from "../../../../Assessment/TeacherAssessment/TeacherA
 import { Divider } from "antd";
 import './AddAssessment.css';
 
-export default function AddAssessment({classroomId, addAssessmentToTable})
+export default function AddAssessment({questions, setQuestions, classroomId, addAssessmentToTable})
 {
     // we need something to distinguish assessments. I figured adding a name component would work. Like "Unit 2 Test" for example. 
     // or "Unit 2 Quiz." Something like that.
-    const [name, setName] = useState([])
-
+    const [name, setName] = useState([]);
     return(
         <div id = "add-assessment">
             <h3>Manual Input:</h3>
@@ -30,7 +29,7 @@ export default function AddAssessment({classroomId, addAssessmentToTable})
             />
             </form>
             <Divider/>
-            <TeacherAssessment></TeacherAssessment>
+            <TeacherAssessment questions={questions} setQuestions={setQuestions}></TeacherAssessment>
         </div>
     );
 }

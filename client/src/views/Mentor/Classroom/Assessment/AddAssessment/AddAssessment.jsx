@@ -3,6 +3,7 @@ import { addAssessment } from "../../../../../Utils/requests"
 import { useActionData } from "react-router-dom";
 import TeacherAssessment from "../../../../Assessment/TeacherAssessment/TeacherAssessment";
 import { Divider } from "antd";
+import './AddAssessment.css';
 
 export default function AddAssessment({classroomId, addAssessmentToTable})
 {

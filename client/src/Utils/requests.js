@@ -609,12 +609,13 @@ export const getAuthorizedWorkspaces = async () =>
     auth: true,
     error: 'Unable to retrive cc worksapces',
   });
-  export const getAssessments = async () =>
+
+export const getAssessments = async () =>
   makeRequest({
-    method: GET,
-    path: `${server}/assessments`,
-    auth: true,
-    error: 'Unable to retrive assessments',
+  method: GET,
+  path: `${server}/assessments`,
+  auth: true,
+  error: 'Unable to retrive assessments',
   });
 
 export const getAuthorizedWorkspace = async (id) =>

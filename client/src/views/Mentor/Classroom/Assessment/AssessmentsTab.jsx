@@ -3,15 +3,15 @@ import { Table, Popconfirm, message } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import {
-    getAuthorizedWorkspaces,
-    getClassroomWorkspace,
-    deleteAuthorizedWorkspace,
     getAssessments,
     getAssessment,
-  } from '../../Utils/requests';
+  } from '../../../../Utils/requests';
+import MentorSubHeader from '../../../../components/MentorSubHeader/MentorSubHeader';
 
 
-export default function AssessmentsTab({searchParams, setSearchParams, classroomId}){
+
+export default function AssessmentsTab({searchParams, setSearchParams, classroomId})
+{
     const [assessmentList, setAssessmentList] = useState([]);
     const [tab, setTab] = useState(
       searchParams.has('tab') ? searchParams.get('tab') : 'home'
@@ -101,12 +101,15 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
         },
     ];
 
+    
 
     return (
         <div>
-          <div id='page-header'>
-            <h1>Saved Assessments</h1>
-          </div>
+          <MentorSubHeader
+          title={'Your Assessments'}
+          addAssessmentActive = {true}
+          classroomId = {classroomId}
+          />
           <div
             id='content-creator-table-container'
             style={{ marginTop: '6.6vh' }}

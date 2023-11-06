@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AddStudentsModal from '../../views/Mentor/Classroom/Roster/AddStudents/AddStudentsModal';
 import './MentorSubHeader.less';
+import AddAssessmentModal from '../../views/Mentor/Classroom/Assessment/AddAssessment/AddAssessmentModal';
 
 export default function MentorSubHeader(props) {
   const {
@@ -14,6 +15,8 @@ export default function MentorSubHeader(props) {
     checkoutActive,
     setListView,
     addStudentsToTable,
+    addAssessmentActive,
+    addAssessmentToTable
   } = props;
 
   return (
@@ -28,6 +31,12 @@ export default function MentorSubHeader(props) {
         {addUserActive ? (
           <AddStudentsModal
             addStudentsToTable={addStudentsToTable}
+            classroomId={classroomId}
+          />
+        ) : null}
+        {addAssessmentActive ? (
+          <AddAssessmentModal
+            addAssessmentToTable={addAssessmentToTable}
             classroomId={classroomId}
           />
         ) : null}

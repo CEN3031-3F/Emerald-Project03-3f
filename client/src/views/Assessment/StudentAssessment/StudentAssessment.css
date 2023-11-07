@@ -1,6 +1,9 @@
 /* Assessment.css */
 
 .Assessment {
+    background-color: white;
+    padding: 100px; /* Adjust the padding as needed */
+    /* Add any other styling properties as per your design */
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -72,5 +75,12 @@
   button.question-button:hover {
     background-color: #0056b3;
   }
+.big-text {
+    color: #fff;
+    font-size: 40px; /* Adjust the font size as needed */
+    font-weight: bold; /* Add or remove this property to control text weight */
+    margin-bottom: 20px; /* Adjust the margin as needed to create space between the text and the white box */
+  }
+
   
   

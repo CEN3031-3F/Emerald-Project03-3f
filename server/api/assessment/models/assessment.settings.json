@@ -11,18 +11,8 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "template": {
-      "type": "string"
-    },
-    "classroom": {
-      "model": "classroom",
-      "via": "assessments"
+    "questions": {
+      "collection": "questions"
     }
   }
 }

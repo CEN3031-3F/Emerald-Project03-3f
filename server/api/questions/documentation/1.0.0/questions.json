@@ -522,6 +522,7 @@
           "id": {
             "type": "string"
           },
+<<<<<<< Updated upstream
           "Question_text": {
             "type": "string"
           },
@@ -555,6 +556,41 @@
               "four"
             ]
           },
+=======
+          "Type": {
+            "type": "string",
+            "enum": [
+              "TF",
+              "FR",
+              "MC3",
+              "MC4"
+            ]
+          },
+          "Choice_1": {
+            "type": "string"
+          },
+          "Choice_2": {
+            "type": "string"
+          },
+          "Choice_3": {
+            "type": "string"
+          },
+          "Choice_4": {
+            "type": "string"
+          },
+          "Correct_Answer": {
+            "type": "string",
+            "enum": [
+              "C1",
+              "C2",
+              "C3",
+              "C4"
+            ]
+          },
+          "Question_Text": {
+            "type": "string"
+          },
+>>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -563,6 +599,7 @@
       },
       "NewQuestions": {
         "properties": {
+<<<<<<< Updated upstream
           "Question_text": {
             "type": "string"
           },
@@ -596,6 +633,41 @@
               "four"
             ]
           },
+=======
+          "Type": {
+            "type": "string",
+            "enum": [
+              "TF",
+              "FR",
+              "MC3",
+              "MC4"
+            ]
+          },
+          "Choice_1": {
+            "type": "string"
+          },
+          "Choice_2": {
+            "type": "string"
+          },
+          "Choice_3": {
+            "type": "string"
+          },
+          "Choice_4": {
+            "type": "string"
+          },
+          "Correct_Answer": {
+            "type": "string",
+            "enum": [
+              "C1",
+              "C2",
+              "C3",
+              "C4"
+            ]
+          },
+          "Question_Text": {
+            "type": "string"
+          },
+>>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"

@@ -11,6 +11,7 @@
     "draftAndPublish": true
   },
   "attributes": {
+<<<<<<< Updated upstream
     "Question_text": {
       "type": "string"
     },
@@ -36,13 +37,43 @@
       ]
     },
     "Correct_Answer_enum": {
+=======
+    "Type": {
       "type": "enumeration",
       "enum": [
-        "one",
-        "two",
-        "three",
-        "four"
+        "TF",
+        "FR",
+        "MC3",
+        "MC4"
       ]
+    },
+    "Choice_1": {
+      "type": "string"
+    },
+    "Choice_2": {
+      "type": "string"
+    },
+    "Choice_3": {
+      "type": "string"
+    },
+    "Choice_4": {
+      "type": "string"
+    },
+    "Correct_Answer": {
+>>>>>>> Stashed changes
+      "type": "enumeration",
+      "enum": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ]
+<<<<<<< Updated upstream
+=======
+    },
+    "Question_Text": {
+      "type": "string"
+>>>>>>> Stashed changes
     }
   }
 }

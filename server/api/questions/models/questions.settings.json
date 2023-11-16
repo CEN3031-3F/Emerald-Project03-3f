@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "questions",
   "info": {
-    "name": "Questions"
+    "name": "Questions",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,15 +11,31 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "MC_3": {
+    "Question_text": {
+      "type": "string"
+    },
+    "Choice_1_text": {
+      "type": "string"
+    },
+    "Choice_2_text": {
+      "type": "string"
+    },
+    "Choice_3_text": {
+      "type": "string"
+    },
+    "Choice_4_text": {
+      "type": "string"
+    },
+    "Question_type": {
       "type": "enumeration",
       "enum": [
-        "one",
-        "two",
-        "three"
+        "MC_3",
+        "MC_4",
+        "FR",
+        "TF"
       ]
     },
-    "MC_4": {
+    "Correct_Answer_enum": {
       "type": "enumeration",
       "enum": [
         "one",
@@ -26,12 +43,6 @@
         "three",
         "four"
       ]
-    },
-    "FreeResponse": {
-      "type": "text"
-    },
-    "T_F": {
-      "type": "boolean"
     }
   }
 }

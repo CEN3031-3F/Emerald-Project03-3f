@@ -522,15 +522,31 @@
           "id": {
             "type": "string"
           },
-          "MC_3": {
+          "Question_text": {
+            "type": "string"
+          },
+          "Choice_1_text": {
+            "type": "string"
+          },
+          "Choice_2_text": {
+            "type": "string"
+          },
+          "Choice_3_text": {
+            "type": "string"
+          },
+          "Choice_4_text": {
+            "type": "string"
+          },
+          "Question_type": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three"
+              "MC_3",
+              "MC_4",
+              "FR",
+              "TF"
             ]
           },
-          "MC_4": {
+          "Correct_Answer_enum": {
             "type": "string",
             "enum": [
               "one",
@@ -538,12 +554,6 @@
               "three",
               "four"
             ]
-          },
-          "FreeResponse": {
-            "type": "string"
-          },
-          "T_F": {
-            "type": "boolean"
           },
           "published_at": {
             "type": "string",
@@ -553,15 +563,31 @@
       },
       "NewQuestions": {
         "properties": {
-          "MC_3": {
+          "Question_text": {
+            "type": "string"
+          },
+          "Choice_1_text": {
+            "type": "string"
+          },
+          "Choice_2_text": {
+            "type": "string"
+          },
+          "Choice_3_text": {
+            "type": "string"
+          },
+          "Choice_4_text": {
+            "type": "string"
+          },
+          "Question_type": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three"
+              "MC_3",
+              "MC_4",
+              "FR",
+              "TF"
             ]
           },
-          "MC_4": {
+          "Correct_Answer_enum": {
             "type": "string",
             "enum": [
               "one",
@@ -569,12 +595,6 @@
               "three",
               "four"
             ]
-          },
-          "FreeResponse": {
-            "type": "string"
-          },
-          "T_F": {
-            "type": "boolean"
           },
           "published_at": {
             "type": "string",

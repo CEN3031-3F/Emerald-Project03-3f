@@ -10,39 +10,5 @@
     "timestamps": true,
     "draftAndPublish": true
   },
-  "attributes": {
-    "Question_text": {
-      "type": "string"
-    },
-    "Choice_1_text": {
-      "type": "string"
-    },
-    "Choice_2_text": {
-      "type": "string"
-    },
-    "Choice_3_text": {
-      "type": "string"
-    },
-    "Choice_4_text": {
-      "type": "string"
-    },
-    "Question_type": {
-      "type": "enumeration",
-      "enum": [
-        "MC_3",
-        "MC_4",
-        "FR",
-        "TF"
-      ]
-    },
-    "Correct_Answer_enum": {
-      "type": "enumeration",
-      "enum": [
-        "one",
-        "two",
-        "three",
-        "four"
-      ]
-    }
-  }
+  "attributes": {}
 }

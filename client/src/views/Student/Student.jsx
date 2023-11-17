@@ -32,6 +32,13 @@ function Student() {
     navigate('/workspace');
   };
 
+  const handleSelection_assessment = (assessment) => {
+    assessment.lesson_module_name = learningStandard.name;
+    localStorage.setItem('my-assessment', JSON.stringify(assessment));
+
+    navigate('/workspace');
+  };
+
   return (
     <div className='container nav-padding'>
       <NavBar />
@@ -64,13 +71,6 @@ function Student() {
         <div id='header'>
           <div>Select Your Assessment</div>
         </div>
-        <ul>
-          <a href="http://localhost:3000/assessment/student">
-            <div id='list-item-wrapper'>
-              <li>{`Assessment 1`}</li>
-            </div>
-          </a>
-        </ul>
       </div>
     </div>
   );

@@ -14,11 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-<<<<<<< Updated upstream
-    "x-generation-date": "11/16/2023 6:20:44 PM"
-=======
     "x-generation-date": "11/16/2023 2:19:41 AM"
->>>>>>> Stashed changes
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -14238,41 +14234,6 @@
           "id": {
             "type": "string"
           },
-<<<<<<< Updated upstream
-          "Question_text": {
-            "type": "string"
-          },
-          "Choice_1_text": {
-            "type": "string"
-          },
-          "Choice_2_text": {
-            "type": "string"
-          },
-          "Choice_3_text": {
-            "type": "string"
-          },
-          "Choice_4_text": {
-            "type": "string"
-          },
-          "Question_type": {
-            "type": "string",
-            "enum": [
-              "MC_3",
-              "MC_4",
-              "FR",
-              "TF"
-            ]
-          },
-          "Correct_Answer_enum": {
-            "type": "string",
-            "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
-            ]
-          },
-=======
           "Type": {
             "type": "string",
             "enum": [
@@ -14306,7 +14267,6 @@
           "Question_Text": {
             "type": "string"
           },
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -14315,41 +14275,6 @@
       },
       "NewQuestions": {
         "properties": {
-<<<<<<< Updated upstream
-          "Question_text": {
-            "type": "string"
-          },
-          "Choice_1_text": {
-            "type": "string"
-          },
-          "Choice_2_text": {
-            "type": "string"
-          },
-          "Choice_3_text": {
-            "type": "string"
-          },
-          "Choice_4_text": {
-            "type": "string"
-          },
-          "Question_type": {
-            "type": "string",
-            "enum": [
-              "MC_3",
-              "MC_4",
-              "FR",
-              "TF"
-            ]
-          },
-          "Correct_Answer_enum": {
-            "type": "string",
-            "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
-            ]
-          },
-=======
           "Type": {
             "type": "string",
             "enum": [
@@ -14383,7 +14308,6 @@
           "Question_Text": {
             "type": "string"
           },
->>>>>>> Stashed changes
           "published_at": {
             "type": "string",
             "format": "date-time"

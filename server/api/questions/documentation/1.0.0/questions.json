@@ -549,10 +549,10 @@
           "Correct_Answer_enum": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
+              "C1",
+              "C2",
+              "C3",
+              "C4"
             ]
           },
           "published_at": {
@@ -590,10 +590,10 @@
           "Correct_Answer_enum": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
+              "C1",
+              "C2",
+              "C3",
+              "C4"
             ]
           },
           "published_at": {

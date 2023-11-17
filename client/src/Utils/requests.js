@@ -610,14 +610,6 @@ export const getAuthorizedWorkspaces = async () =>
     error: 'Unable to retrive cc worksapces',
   });
 
-export const getAssessments = async () =>
-  makeRequest({
-  method: GET,
-  path: `${server}/assessments`,
-  auth: true,
-  error: 'Unable to retrive assessments',
-  });
-
 export const getAuthorizedWorkspace = async (id) =>
   makeRequest({
     method: GET,
@@ -672,13 +664,6 @@ export const deleteAuthorizedWorkspace = async (id) =>
     auth: true,
     error: 'Unable to delete cc workspace',
   });
-  export const deleteAssessment = async (id) =>
-  makeRequest({
-    method: DELETE,
-    path: `${server}/assessment/${id}`,
-    auth: true,
-    error: 'Unable to delete assessment',
-  });
 
 export const getClassroomWorkspace = async (id) =>
   makeRequest({
@@ -688,17 +673,10 @@ export const getClassroomWorkspace = async (id) =>
     error: 'Unable to retrive classroom workspaces',
   });
 
-  export const getAssessment = async (id) =>
-  makeRequest({
-    method: GET,
-    path: `${server}/classroom/assessments/${id}`,
-    auth: true,
-    error: 'Unable to retrive classroom assessments',
-  });
-
   // I used the addStudent as a template. I want the teacher to be able to hit an "add assessment" icon in the mentor classroom view's assessment
   // tab, and then they will be prompted to add questions an when they hit save, it will save the questions to the assessment and the assessment
   // to the database.
+  
   export const addAssessment = async (name, questions, classroom) =>
   makeRequest({
     method: POST,
@@ -710,4 +688,31 @@ export const getClassroomWorkspace = async (id) =>
     },
     auth: true,
     error: 'Failed to add assessment.',
+  });
+
+  // The following 3 methods were created some other time by someone other than me (Sam), so I do not know what they do or when they 
+  // are called. I just found them further up on the page and copy and pasted them here so that all the assessment requests were together.
+
+  export const getAssessments = async () =>
+  makeRequest({
+  method: GET,
+  path: `${server}/assessments`,
+  auth: true,
+  error: 'Unable to retrive assessments',
+  });
+
+  export const deleteAssessment = async (id) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/assessment/${id}`,
+    auth: true,
+    error: 'Unable to delete assessment',
+  });
+
+  export const getAssessment = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/classroom/assessments/${id}`,
+    auth: true,
+    error: 'Unable to retrive classroom assessments',
   });

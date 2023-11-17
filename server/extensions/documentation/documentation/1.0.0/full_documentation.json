@@ -12966,28 +12966,31 @@
                 "id": {
                   "type": "string"
                 },
-                "Type": {
+                "Question_text": {
+                  "type": "string"
+                },
+                "Choice_1_text": {
+                  "type": "string"
+                },
+                "Choice_2_text": {
+                  "type": "string"
+                },
+                "Choice_3_text": {
+                  "type": "string"
+                },
+                "Choice_4_text": {
+                  "type": "string"
+                },
+                "Question_type": {
                   "type": "string",
                   "enum": [
-                    "TF",
+                    "MC_3",
+                    "MC_4",
                     "FR",
-                    "MC3",
-                    "MC4"
+                    "TF"
                   ]
                 },
-                "Choice_1": {
-                  "type": "string"
-                },
-                "Choice_2": {
-                  "type": "string"
-                },
-                "Choice_3": {
-                  "type": "string"
-                },
-                "Choice_4": {
-                  "type": "string"
-                },
-                "Correct_Answer": {
+                "Correct_Answer_enum": {
                   "type": "string",
                   "enum": [
                     "C1",
@@ -12995,9 +12998,6 @@
                     "C3",
                     "C4"
                   ]
-                },
-                "Question_Text": {
-                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -14261,10 +14261,10 @@
           "Correct_Answer_enum": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
+              "C1",
+              "C2",
+              "C3",
+              "C4"
             ]
           },
           "published_at": {
@@ -14302,10 +14302,10 @@
           "Correct_Answer_enum": {
             "type": "string",
             "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
+              "C1",
+              "C2",
+              "C3",
+              "C4"
             ]
           },
           "published_at": {

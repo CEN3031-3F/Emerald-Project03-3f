@@ -577,6 +577,12 @@
               }
             }
           },
+          "Name": {
+            "type": "string"
+          },
+          "Classroom_ID": {
+            "type": "integer"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -590,6 +596,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Classroom_ID": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",

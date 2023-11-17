@@ -13,6 +13,12 @@
   "attributes": {
     "questions": {
       "collection": "questions"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Classroom_ID": {
+      "type": "integer"
     }
   }
 }

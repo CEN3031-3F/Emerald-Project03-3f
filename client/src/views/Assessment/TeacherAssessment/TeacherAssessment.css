@@ -126,3 +126,66 @@ input, select {
   font-weight: bold;
   text-align: left;
 }
+
+.canvas-questions {
+  margin-top: 20px;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+
+.canvas-question {
+  border: 1px solid #ddd; /* Border color for the question container */
+  border-radius: 8px; /* Border radius for the question container */
+  margin-bottom: 20px; /* Spacing between questions */
+  font-size: 16px; /* Font size for the question body */
+}
+
+.canvas-header {
+  font-size: 20px; /* Font size for the question header */
+  font-weight: bold; /* Bold font for the question header */
+  margin-bottom: 10px; /* Spacing between header and body */
+  background-color: #f5f5f5;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.canvas-body {
+  margin-bottom: 10px; /* Spacing between body and options */
+  text-align: left;
+  padding-left: 10px;
+}
+
+.canvas-correct-option-text {
+  text-align: left;
+  padding-left: 10px;
+  font-style: italic;
+}
+
+.options {
+  margin-left: 20px; /* Indent options for better readability */
+}
+
+.options div {
+  margin-bottom: 5px; /* Spacing between options */
+}
+
+.canvas-delete-button {
+  background-color: rgb(220, 220, 220);
+  border:rgb(105, 105, 105);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.canvas-delete-button:hover {
+  background-color: rgb(185, 185, 185);
+}

@@ -1,26 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Assessment.css';
+import { getQuestions } from '../../Utils/requests';
 
-function Assessment() {
-  const questions = [
-    {
-      text: 'What is an electrical circuit?',
-      options: ['A type of battery', 'A closed loop of wires or components through which electricity flows ', ' A type of light bulb'],
-    },
-    {
-      text: 'Name two essential components of a simple electrical circuit.',
-      options: ['Paper and tape', 'Wires and a light bulb', 'Rocks and sticks'],
-    },
-    {
-      text: 'What is the purpose of a switch in an electrical circuit?',
-      options: ['To slow down the flow of electricity', 'To open or close the circuit, controlling the flow of electricity ', 'To make the circuit brighter'],
-    },
-    {
-      text: 'What is an electrical circuit?',
-      options: ['A type of battery', 'A closed loop of wires or components through which electricity flows ', ' A type of light bulb'],
-    },
-  ];
+function Assessment(props) {
 
+  // The old questions array that was created statically had fields of text and options.
+  // TODO: get the questions from the database and loop through them, assigning questiontext to text, and each option to options based on the type.
+  // First: I need to get the assessments.jsx in the mentor view assessments table, so that the page is assigned an authentication token and I can make requests here.
+  // Basically, I need to get an open questions button for each assessment.
+
+  
+  const [questions, setQuestions] = useState([]);
+  const {classroomId} = props;
+
+  useEffect(() => {
+
+    // get dbresponse with questions.
+    const fetchData = async() => {
+      let dbresponse;
+      dbresponse = await getQuestions();
+      console.log(dbresponse.data);
+      const newQuestions = dbresponse.data.map((item, index) => 
+      {
+        const opt1 = item.Choice_1_text;
+        const opt2 = item.Choice_2_text;
+        const opt3 = item.Choice_3_text;
+        const opt4 = item.Choice_4_text;
+        const options = [opt1, opt2, opt3, opt4];
+
+        return {
+          text : item.Question_text,
+          options : options,
+        };
+      });
+      setQuestions(newQuestions);
+      console.log(newQuestions);
+    };
+    fetchData();
+  }, []);
+
+  console.log(questions[0]);
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
 
   const openPopup = (index) => {

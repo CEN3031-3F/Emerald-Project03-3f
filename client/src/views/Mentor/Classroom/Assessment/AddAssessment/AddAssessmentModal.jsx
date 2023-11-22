@@ -1,12 +1,15 @@
 import {Modal, Button} from 'antd';
 import React, {useState} from "react";
 import AddAssessment from './AddAssessment';
+import { addAssessment } from '../../../../../Utils/requests';
 
 
 export default function AddAssessmentModal(props) {
     const [visible, setVisible] = useState(false);
-    const {classroomId, addAssessmentToTable} = props;
+    const {classroomId} = props;
     const [questions, setQuestions] = useState([]);
+    const [assessmentName, setName] = useState([]);
+    const [assessmentDescription, setDescription] = useState([]);
     
     const showModal = () => {
         setVisible(true)
@@ -18,6 +21,9 @@ export default function AddAssessmentModal(props) {
 
     const handleOk = () => {
         // TODO: send questions to database
+        let dbresponse;
+        dbresponse = addAssessment(assessmentName, questions, classroomId, assessmentDescription);
+        console.log(dbresponse);
         console.log(questions);
         setVisible(false)
     };
@@ -38,7 +44,7 @@ export default function AddAssessmentModal(props) {
                     </Button>,
                 ]}
             >
-            <AddAssessment questions={questions} setQuestions={setQuestions} addAssessmentToTable={addAssessmentToTable} classroomId={classroomId}/>
+            <AddAssessment questions={questions} setQuestions={setQuestions} classroomId={classroomId} assessmentName = {assessmentName} setName = {setName} assessmentDescription = {assessmentDescription} setDescription = {setDescription}/>
             </Modal>
         </div>
     );

@@ -43,8 +43,8 @@
       "collection": "selection"
     },
     "authorized_workspaces": {
-      "via": "classroom",
       "private": true,
+      "via": "classroom",
       "collection": "authorized-workspace"
     }
   }

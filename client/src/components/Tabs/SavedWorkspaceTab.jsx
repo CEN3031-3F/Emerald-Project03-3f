@@ -26,8 +26,8 @@ export default function SavedWorkSpaceTab({searchParams, setSearchParams, classr
           else{
             wsResponse = await getAuthorizedWorkspaces();
           }
-            
             setWorkspaceList(wsResponse.data);
+            console.log(workspaceList[0]);
         };
         fetchData();
       }, [classroomId]);

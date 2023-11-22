@@ -17,7 +17,10 @@
     "Name": {
       "type": "string"
     },
-    "Classroom_ID": {
+    "description": {
+      "type": "string"
+    },
+    "classroomId": {
       "type": "integer"
     }
   }

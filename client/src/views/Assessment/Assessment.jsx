@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Assessment.css';
-import { getQuestions } from '../../Utils/requests';
+import { getAssessmentQuestions } from '../../Utils/requests';
 
 function Assessment(props) {
 
@@ -11,21 +11,21 @@ function Assessment(props) {
 
   
   const [questions, setQuestions] = useState([]);
-  const {classroomId} = props;
+  const {assessmentId} = props;
 
   useEffect(() => {
 
     // get dbresponse with questions.
     const fetchData = async() => {
       let dbresponse;
-      dbresponse = await getQuestions();
-      console.log(dbresponse.data);
-      const newQuestions = dbresponse.data.map((item, index) => 
+      dbresponse = await getAssessmentQuestions(assessmentId);
+      const newQuestions = dbresponse.data.questions.map((item, index) => 
       {
         const opt1 = item.Choice_1_text;
         const opt2 = item.Choice_2_text;
         const opt3 = item.Choice_3_text;
         const opt4 = item.Choice_4_text;
+
         const options = [opt1, opt2, opt3, opt4];
 
         return {
@@ -34,12 +34,10 @@ function Assessment(props) {
         };
       });
       setQuestions(newQuestions);
-      console.log(newQuestions);
     };
     fetchData();
   }, []);
 
-  console.log(questions[0]);
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
 
   const openPopup = (index) => {

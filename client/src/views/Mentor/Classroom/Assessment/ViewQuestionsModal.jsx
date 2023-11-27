@@ -4,7 +4,7 @@ import Assessment from '../../../Assessment/Assessment';
 
 export default function ViewQuestionsModal(props){
     const [visible, setVisible] = useState(false);
-    const {classroomId} = props;
+    const {assessmentId} = props;
 
     const showModal = () => {
         setVisible(true)
@@ -33,7 +33,7 @@ export default function ViewQuestionsModal(props){
                     </Button>,
                 ]}
             >
-            <Assessment classroomId = {classroomId}></Assessment>
+            <Assessment assessmentId = {assessmentId}></Assessment>
             </Modal>
         </div>
     )

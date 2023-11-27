@@ -30,20 +30,15 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
             wsResponse = await getAssessments();
           }
 
-          console.log(classroomId);
-          console.log(wsResponse.data[1].classroomId);
           const newAssessmentsList = wsResponse.data.filter(
             (item) => item.classroomId === Number(classroomId)
           );
-
-          console.log(newAssessmentsList);
 
           setAssessmentList(newAssessmentsList);
         };
         fetchData();
       }, [classroomId]);
     
-      console.log(assessmentList[0]);
     const wsColumn = [
         {
           title: 'Name',
@@ -66,12 +61,12 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
         {
           title: 'View Questions',
           dataIndex: 'open',
-          key: 'open',
+          key: 'id',
           editable: false,
           width: '20%',
           align: 'left',
           render: (_, key) => (
-            <ViewQuestionsModal classroomId = {classroomId}></ViewQuestionsModal>
+            <ViewQuestionsModal assessmentId = {key.id}></ViewQuestionsModal>
           ),
         },
     ];

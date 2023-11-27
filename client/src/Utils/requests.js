@@ -720,7 +720,7 @@ export const getClassroomWorkspace = async (id) =>
   });
 
   export const addQuestions = async (questions) => {
-
+    console.log(questions);
     const ids = [];
   
     // Use Promise.all to wait for all asynchronous operations to complete
@@ -735,7 +735,8 @@ export const getClassroomWorkspace = async (id) =>
           Question_type,
           Correct_Answer_enum,
         } = question;
-  
+
+        console.log(question);
         try {
           const response = await makeRequest({
             method: POST,
@@ -752,7 +753,9 @@ export const getClassroomWorkspace = async (id) =>
             auth: true,
             error: 'Failed to add questions.',
           });
-  
+          
+          console.log(response.data);
+
           // Push the new ID to the array
           ids.push(response.data.id.toString());
         } catch (error) {

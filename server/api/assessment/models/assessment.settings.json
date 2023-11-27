@@ -17,11 +17,11 @@
     "Name": {
       "type": "string"
     },
-    "description": {
-      "type": "string"
-    },
     "classroomId": {
       "type": "integer"
+    },
+    "description": {
+      "type": "string"
     }
   }
 }

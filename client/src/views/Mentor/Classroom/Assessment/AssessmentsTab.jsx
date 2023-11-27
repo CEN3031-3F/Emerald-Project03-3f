@@ -25,9 +25,11 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
           let wsResponse;
           if(classroomId){
             wsResponse = await getAssessments();
+            console.log(wsResponse.data);
           }
           else{
             wsResponse = await getAssessments();
+            console.log(wsResponse.data);
           }
 
           const newAssessmentsList = wsResponse.data.filter(

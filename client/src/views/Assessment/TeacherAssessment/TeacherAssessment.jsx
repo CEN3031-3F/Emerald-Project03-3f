@@ -2,10 +2,34 @@ import React, { useState } from 'react';
 import QuestionPopup from './QuestionPopup';
 import './TeacherAssessment.css';
 
-function TeacherAssessment({questions, setQuestions}) {
+function TeacherAssessment({questions2 = [], setQuestions}) {
+  const questions = [
+    {
+      text: 'What is an electrical circuit?',
+      options: ['A type of battery', 'A closed loop of wires or components through which electricity flows ', ' A type of light bulb'],
+    },
+    {
+      text: 'Name two essential components of a simple electrical circuit.',
+      options: ['Paper and tape', 'Wires and a light bulb', 'Rocks and sticks'],
+    },
+    {
+      text: 'What is the purpose of a switch in an electrical circuit?',
+      options: ['To slow down the flow of electricity', 'To open or close the circuit, controlling the flow of electricity ', 'To make the circuit brighter'],
+    },
+  ];
 
+  const tutorialImages = ['/public/images/MC 1.png', '/public/images/MC 2.png']
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
   const [questionPopupType, setQuestionPopupType] = useState(null);
+  const [openTutorial, setOpenTutorial] = useState(false);
+  /*const [navigateTutorial, setNavigateTutorial] = useState(0);
+
+  const navigateTutorial = () => {
+    setNavigateTutorial(navigateTutorial)
+  }; */
+  const openTutorialPopUp = () => {
+    setOpenTutorial(!openTutorial)
+  };
 
   const createQuestionPopup = (type) => {
     setQuestionPopupType(type);
@@ -44,6 +68,16 @@ function TeacherAssessment({questions, setQuestions}) {
       <button className="create-question-button" onClick={() => createQuestionPopup('trueFalse')}>Create True/False Question</button>
       <button className="create-question-button" onClick={() => createQuestionPopup('multipleChoice')}>Create Multiple Choice Question</button>
       <button className="create-question-button" onClick={() => createQuestionPopup('openResponse')}>Create Open Response Question</button>
+      <button className="create-question-button" onClick={openTutorialPopUp}>Open Tutorial</button>
+      {openTutorial && <div className="tutorialPopUp"> 
+      <div className='tutorial-content'>
+      Tutorial
+      <button className="create-question-button" onClick={openTutorialPopUp}>Previous</button>
+      <button className="create-question-button" onClick={openTutorialPopUp}>Next</button>
+      <div className='tut-image' style={{backgroundImage: `url('${tutorialImages[0]}')` }}></div>
+      </div>
+       </div>}
+
       {questionPopupType && (
         <QuestionPopup type={questionPopupType} onSave={saveQuestion} onClose={closeQuestionPopup} />
       )}

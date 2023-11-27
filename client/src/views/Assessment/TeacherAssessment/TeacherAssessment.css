@@ -88,6 +88,42 @@
   touch-action: manipulation;
 }
 
+.tutorialPopUp {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+}
+.tutorialPopUp::after{
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-content {
+  z-index: 1;
+  height: 50%;
+  width: 50%;
+  background-color: #fff;
+}
+
+.tut-image{
+  height: 350px;
+  width: 100%;
+  background-size: cover;
+}
+
 .create-question-button:hover {
   background-color: #0156ff;
 }

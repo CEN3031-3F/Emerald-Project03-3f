@@ -36,7 +36,7 @@ function Student() {
     assessment.lesson_module_name = learningStandard.name;
     localStorage.setItem('my-assessment', JSON.stringify(assessment));
 
-    navigate('/workspace');
+    navigate('/assessment');
   };
 
   return (
@@ -71,6 +71,28 @@ function Student() {
         <div id='header'>
           <div>Select Your Assessment</div>
         </div>
+        <ul>
+          {learningStandard.assessment ? (
+            learningStandard.assessment
+              .sort((assessment1, assessment2) => assessment1.number - assessment2.number)
+              .map((activity) => (
+                <div
+                  key={assessment.id}
+                  id='list-item-wrapper'
+                  onClick={() => handleSelection_assessment(assessment)}
+                >
+                  <li>{`${learningStandard.name}: Assessment ${assessment.number}`}</li>
+                </div>
+              ))
+          ) : (
+            <div>
+              <p>There is currently no active learning standard set.</p>
+              <p>
+                When your classroom manager selects one, it will appear here.
+              </p>
+            </div>
+          )}
+        </ul>
       </div>
     </div>
   );

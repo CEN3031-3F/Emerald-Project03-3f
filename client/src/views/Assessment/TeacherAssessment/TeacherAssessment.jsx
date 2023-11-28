@@ -22,11 +22,7 @@ function TeacherAssessment({questions2 = [], setQuestions}) {
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
   const [questionPopupType, setQuestionPopupType] = useState(null);
   const [openTutorial, setOpenTutorial] = useState(false);
-  /*const [navigateTutorial, setNavigateTutorial] = useState(0);
-
-  const navigateTutorial = () => {
-    setNavigateTutorial(navigateTutorial)
-  }; */
+  
   const openTutorialPopUp = () => {
     setOpenTutorial(!openTutorial)
   };

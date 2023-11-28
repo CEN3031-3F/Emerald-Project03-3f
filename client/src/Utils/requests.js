@@ -1,6 +1,7 @@
 import { server } from './hosts';
 import axios from 'axios';
 import { getToken } from './AuthRequests';
+import isDate from 'date-fns/fp/isDate/index.js';
 
 const GET = 'GET';
 const PUT = 'PUT';
@@ -18,6 +19,9 @@ const makeRequest = async ({ method, path, data, auth = false, error }) => {
         },
       }
     : null;
+
+  console.log(path);
+  console.log(config);
 
   try {
     switch (method) {
@@ -677,42 +681,93 @@ export const getClassroomWorkspace = async (id) =>
   // tab, and then they will be prompted to add questions an when they hit save, it will save the questions to the assessment and the assessment
   // to the database.
   
-  export const addAssessment = async (name, questions, classroom) =>
+  export const addAssessment = async (name, classroomId, ids, description) =>
   makeRequest({
     method: POST,
     path: `${server}/assessments`,
     data: {
-      name: name,
-      questions: questions,
-      classroom: classroom,
+      Name: name,
+      classroomId: classroomId,
+      questions: ids,
+      description: description
     },
     auth: true,
     error: 'Failed to add assessment.',
   });
 
-  // The following 3 methods were created some other time by someone other than me (Sam), so I do not know what they do or when they 
-  // are called. I just found them further up on the page and copy and pasted them here so that all the assessment requests were together.
-
-  export const getAssessments = async () =>
-  makeRequest({
-  method: GET,
-  path: `${server}/assessments`,
-  auth: true,
-  error: 'Unable to retrive assessments',
-  });
-
-  export const deleteAssessment = async (id) =>
-  makeRequest({
-    method: DELETE,
-    path: `${server}/assessment/${id}`,
-    auth: true,
-    error: 'Unable to delete assessment',
-  });
-
-  export const getAssessment = async (id) =>
+  export const getClassroomAssessment = async (id) =>
   makeRequest({
     method: GET,
     path: `${server}/classroom/assessments/${id}`,
     auth: true,
-    error: 'Unable to retrive classroom assessments',
+    error: 'Unable to retrive classroom assessment',
   });
+
+  export const getAssessments = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments`,
+    auth: true,
+    error: 'Unable to retrive assessments',
+  });
+
+  export const getQuestions = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/questions`,
+    auth: true,
+    error: 'Unable to retrieve assessments',
+  });
+
+  export const addQuestions = async (questions) => {
+
+    const ids = [];
+  
+    // Use Promise.all to wait for all asynchronous operations to complete
+    await Promise.all(
+      questions.map(async (question) => {
+        const {
+          Question_text,
+          Choice_1_text,
+          Choice_2_text,
+          Choice_3_text,
+          Choice_4_text,
+          Question_type,
+          Correct_Answer_enum,
+        } = question;
+  
+        try {
+          const response = await makeRequest({
+            method: POST,
+            path: `${server}/questions`,
+            data: {
+              Question_text,
+              Choice_1_text,
+              Choice_2_text,
+              Choice_3_text,
+              Choice_4_text,
+              Question_type,
+              Correct_Answer_enum,
+            },
+            auth: true,
+            error: 'Failed to add questions.',
+          });
+  
+          // Push the new ID to the array
+          ids.push(response.data.id.toString());
+        } catch (error) {
+          console.error('Error adding question:', error);
+        }
+      })
+    );
+    return ids;
+  };
+
+  export const getAssessmentQuestions = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments/${id}`,
+    auth: true,
+    error: 'Unable to retrieve assessments',
+  });
+ 

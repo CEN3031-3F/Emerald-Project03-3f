@@ -4,9 +4,10 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import {
     getAssessments,
-    getAssessment,
+    getClassroomAssessment,
   } from '../../../../Utils/requests';
 import MentorSubHeader from '../../../../components/MentorSubHeader/MentorSubHeader';
+import ViewQuestionsModal from './ViewQuestionsModal';
 
 
 
@@ -23,13 +24,17 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
         const fetchData = async () => {
           let wsResponse;
           if(classroomId){
-            wsResponse = await getAssessment(classroomId);
+            wsResponse = await getAssessments();
           }
           else{
             wsResponse = await getAssessments();
           }
-            
-            setAssessmentList(wsResponse.data);
+
+          const newAssessmentsList = wsResponse.data.filter(
+            (item) => item.classroomId === Number(classroomId)
+          );
+
+          setAssessmentList(newAssessmentsList);
         };
         fetchData();
       }, [classroomId]);
@@ -37,12 +42,12 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
     const wsColumn = [
         {
           title: 'Name',
-          dataIndex: 'name',
-          key: 'name',
+          dataIndex: 'Name',
+          key: 'Name',
           editable: true,
           width: '30%',
           align: 'left',
-          render: (_, key) => key.name,
+          render: (_, key) => key.Name,
         },
         {
           title: 'Description',
@@ -54,49 +59,14 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
           render: (_, key) => key.description,
         },
         {
-          title: 'Open Workspace',
+          title: 'View Questions',
           dataIndex: 'open',
-          key: 'open',
+          key: 'id',
           editable: false,
           width: '20%',
           align: 'left',
           render: (_, key) => (
-            <Link
-              onClick={() =>
-                localStorage.setItem('sandbox-activity', JSON.stringify(key))
-              }
-              to={'/sandbox'}
-            >
-              Open
-            </Link>
-          ),
-        },
-        {
-          title: 'Delete',
-          dataIndex: 'delete',
-          key: 'delete',
-          width: '10%',
-          align: 'right',
-          render: (_, key) => (
-            <Popconfirm
-              title={'Are you sure you want to delete this assessment?'}
-              icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
-              onConfirm={async () => {
-                const res = await deleteAssessment(key.id);
-                if (res.err) {
-                  message.error(res.err);
-                } else {
-                  setAssessmentList(
-                    assessmentList.filter((ws) => {
-                      return ws.id !== key.id;
-                    })
-                  );
-                  message.success('Delete success');
-                }
-              }}
-            >
-              <button id={'link-btn'}>Delete</button>
-            </Popconfirm>
+            <ViewQuestionsModal assessmentId = {key.id}></ViewQuestionsModal>
           ),
         },
     ];

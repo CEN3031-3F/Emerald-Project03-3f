@@ -36,7 +36,6 @@ export default function MentorSubHeader(props) {
         ) : null}
         {addAssessmentActive ? (
           <AddAssessmentModal
-            addAssessmentToTable={addAssessmentToTable}
             classroomId={classroomId}
           />
         ) : null}

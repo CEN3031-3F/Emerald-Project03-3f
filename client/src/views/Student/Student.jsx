@@ -32,6 +32,13 @@ function Student() {
     navigate('/workspace');
   };
 
+  const handleSelection_assessment = (assessment) => {
+    assessment.lesson_module_name = learningStandard.name;
+    localStorage.setItem('my-assessment', JSON.stringify(assessment));
+
+    navigate('/assessment');
+  };
+
   return (
     <div className='container nav-padding'>
       <NavBar />
@@ -65,11 +72,26 @@ function Student() {
           <div>Select Your Assessment</div>
         </div>
         <ul>
-          <a href="http://localhost:3000/assessment/student">
-            <div id='list-item-wrapper'>
-              <li>{`Assessment 1`}</li>
+          {learningStandard.assessment ? (
+            learningStandard.assessment
+              .sort((assessment1, assessment2) => assessment1.number - assessment2.number)
+              .map((activity) => (
+                <div
+                  key={assessment.id}
+                  id='list-item-wrapper'
+                  onClick={() => handleSelection_assessment(assessment)}
+                >
+                  <li>{`${learningStandard.name}: Assessment ${assessment.number}`}</li>
+                </div>
+              ))
+          ) : (
+            <div>
+              <p>There is currently no active learning standard set.</p>
+              <p>
+                When your classroom manager selects one, it will appear here.
+              </p>
             </div>
-          </a>
+          )}
         </ul>
       </div>
     </div>

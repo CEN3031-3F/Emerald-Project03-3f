@@ -770,3 +770,27 @@ export const getClassroomWorkspace = async (id) =>
     auth: true,
     error: 'Unable to delete assessment',
   });
+
+  export const getAssessment = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments/${id}`,
+    auth: true,
+    error: 'Unable to retrieve assessment',
+  });
+
+export const deleteQuestions = async (questions) =>
+{
+  await Promise.all(
+    questions.map((question) => 
+      {
+        makeRequest({
+          method: DELETE,
+          path: `${server}/questions/${question.id}`,
+          auth: true,
+          error: 'Unable to delete assessment',
+        });
+      }
+    )
+  )
+}

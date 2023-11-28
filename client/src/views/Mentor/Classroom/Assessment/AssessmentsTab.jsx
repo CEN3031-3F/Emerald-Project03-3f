@@ -4,6 +4,8 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import {
     getAssessments,
     deleteAssessment,
+    getAssessment,
+    deleteQuestions
   } from '../../../../Utils/requests';
 import MentorSubHeader from '../../../../components/MentorSubHeader/MentorSubHeader';
 import ViewQuestionsModal from './ViewQuestionsModal';
@@ -77,6 +79,12 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
               title={'Are you sure you want to delete this assessment?'}
               icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
               onConfirm={async () => {
+                const res1 = await getAssessment(key.id);
+                if (res1.err) {
+                  message.error(res.err);
+                } else {
+                  deleteQuestions(res1.data.questions);
+                }
                 const res = await deleteAssessment(key.id);
                 if (res.err) {
                   message.error(res.err);

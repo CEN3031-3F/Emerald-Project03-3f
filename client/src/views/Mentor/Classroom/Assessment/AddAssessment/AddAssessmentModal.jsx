@@ -88,9 +88,7 @@ export default function AddAssessmentModal(props) {
         });
 
         const ids = await addQuestions(newQuestions);
-        
-        console.log(classroomId);
-        
+    
         // add assessment to database
         dbresponse2 = await addAssessment(assessmentName, classroomId, [...ids], assessmentDescription);
 

@@ -580,11 +580,11 @@
           "Name": {
             "type": "string"
           },
-          "classroomId": {
-            "type": "integer"
-          },
           "description": {
             "type": "string"
+          },
+          "classroomId": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -603,11 +603,11 @@
           "Name": {
             "type": "string"
           },
-          "classroomId": {
-            "type": "integer"
-          },
           "description": {
             "type": "string"
+          },
+          "classroomId": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",

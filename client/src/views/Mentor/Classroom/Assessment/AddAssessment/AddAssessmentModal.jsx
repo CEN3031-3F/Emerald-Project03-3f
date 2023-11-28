@@ -86,8 +86,9 @@ export default function AddAssessmentModal(props) {
                 Correct_Answer_enum: correctValue,
                 };
         });
-
+        console.log(newQuestions);
         const ids = await addQuestions(newQuestions);
+        console.log(ids);
         
         console.log(classroomId);
         

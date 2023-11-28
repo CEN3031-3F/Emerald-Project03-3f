@@ -2,22 +2,37 @@ import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
-import { getStudentClassroom } from '../../Utils/requests';
+import { getStudentClassroom, getAssessments } from '../../Utils/requests';
 import './Student.less';
 
 function Student() {
+  const [assessmentList, setAssessmentList] = useState([]);
+  const [questionList, setQuestionList] = useState([]);
   const [learningStandard, setLessonModule] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        let wsResponse;
         const res = await getStudentClassroom();
+        const classroom_ID = res.data.classroom.id;
+        console.log(classroom_ID);
         if (res.data) {
           if (res.data.lesson_module) {
             setLessonModule(res.data.lesson_module);
           }
-        } else {
+          wsResponse = await getAssessments();
+          
+          const newAssessmentsList = wsResponse.data.filter(
+            (item) => item.classroomId === Number(classroom_ID)
+          );
+  
+
+          setAssessmentList(newAssessmentsList);
+        
+        } 
+        else {
           message.error(res.err);
         }
       } catch {}
@@ -36,7 +51,9 @@ function Student() {
     assessment.lesson_module_name = learningStandard.name;
     localStorage.setItem('my-assessment', JSON.stringify(assessment));
 
-    navigate('/assessment');
+    console.log(learningStandard);
+
+    navigate('/assessments');
   };
 
   return (
@@ -71,28 +88,7 @@ function Student() {
         <div id='header'>
           <div>Select Your Assessment</div>
         </div>
-        <ul>
-          {learningStandard.assessment ? (
-            learningStandard.assessment
-              .sort((assessment1, assessment2) => assessment1.number - assessment2.number)
-              .map((activity) => (
-                <div
-                  key={assessment.id}
-                  id='list-item-wrapper'
-                  onClick={() => handleSelection_assessment(assessment)}
-                >
-                  <li>{`${learningStandard.name}: Assessment ${assessment.number}`}</li>
-                </div>
-              ))
-          ) : (
-            <div>
-              <p>There is currently no active learning standard set.</p>
-              <p>
-                When your classroom manager selects one, it will appear here.
-              </p>
-            </div>
-          )}
-        </ul>
+        
       </div>
     </div>
   );

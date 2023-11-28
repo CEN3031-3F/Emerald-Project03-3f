@@ -695,14 +695,6 @@ export const getClassroomWorkspace = async (id) =>
     error: 'Failed to add assessment.',
   });
 
-  export const getClassroomAssessment = async (id) =>
-  makeRequest({
-    method: GET,
-    path: `${server}/classroom/assessments/${id}`,
-    auth: true,
-    error: 'Unable to retrive classroom assessment',
-  });
-
   export const getAssessments = async () =>
   makeRequest({
     method: GET,
@@ -773,4 +765,11 @@ export const getClassroomWorkspace = async (id) =>
     auth: true,
     error: 'Unable to retrieve assessments',
   });
- 
+
+  export const deleteAssessment = async (id) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/assessments/${id}`,
+    auth: true,
+    error: 'Unable to delete assessment',
+  });

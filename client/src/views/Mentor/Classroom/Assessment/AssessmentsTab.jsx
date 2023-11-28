@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Popconfirm, message } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import {
     getAssessments,
-    getClassroomAssessment,
+    deleteAssessment,
   } from '../../../../Utils/requests';
 import MentorSubHeader from '../../../../components/MentorSubHeader/MentorSubHeader';
 import ViewQuestionsModal from './ViewQuestionsModal';
-
-
 
 export default function AssessmentsTab({searchParams, setSearchParams, classroomId})
 {
@@ -61,7 +58,7 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
           render: (_, key) => key.description,
         },
         {
-          title: 'View Questions',
+          title: 'Open Questions',
           dataIndex: 'open',
           key: 'id',
           editable: false,
@@ -71,9 +68,35 @@ export default function AssessmentsTab({searchParams, setSearchParams, classroom
             <ViewQuestionsModal assessmentId = {key.id}></ViewQuestionsModal>
           ),
         },
+        {
+          title: 'Delete',
+          dataIndex: 'delete',
+          key: 'delete',
+          width: '10%',
+          align: 'right',
+          render: (_, key) => (
+            <Popconfirm
+              title={'Are you sure you want to delete this assessment?'}
+              icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+              onConfirm={async () => {
+                const res = await deleteAssessment(key.id);
+                if (res.err) {
+                  message.error(res.err);
+                } else {
+                  setAssessmentList(
+                    assessmentList.filter((ws) => {
+                      return ws.id !== key.id;
+                    })
+                  );
+                  message.success('Delete success');
+                }
+              }}
+            >
+              <button id={'link-btn'}>Delete</button>
+            </Popconfirm>
+          ),
+        },
     ];
-
-    
 
     return (
         <div>

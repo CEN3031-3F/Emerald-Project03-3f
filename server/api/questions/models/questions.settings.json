@@ -10,7 +10,6 @@
     "timestamps": true,
     "draftAndPublish": true
   },
-
   "attributes": {
     "Question_text": {
       "type": "string"
@@ -39,10 +38,10 @@
     "Correct_Answer_enum": {
       "type": "enumeration",
       "enum": [
-        "one",
-        "two",
-        "three",
-        "four"
+        "C1",
+        "C2",
+        "C3",
+        "C4"
       ]
     }
   }

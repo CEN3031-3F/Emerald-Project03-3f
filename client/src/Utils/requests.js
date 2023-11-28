@@ -611,7 +611,7 @@ export const getAuthorizedWorkspaces = async () =>
     method: GET,
     path: `${server}/authorized-workspaces`,
     auth: true,
-    error: 'Unable to retrive cc workspaces',
+    error: 'Unable to retrive cc worksapces',
   });
 
 export const getAuthorizedWorkspace = async (id) =>

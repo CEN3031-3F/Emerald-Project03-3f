@@ -41,6 +41,13 @@ function TeacherAssessment({questions, setQuestions}) {
     setShowPopups(newPopups);
   };
 
+  const editQuestion = () => {
+    console.log('Button clicked!');
+    //if(index==='')
+    createQuestionPopup('trueFalse')
+    
+  };
+
   return (
     <div className="Assessment">
       <div>
@@ -52,6 +59,7 @@ function TeacherAssessment({questions, setQuestions}) {
       <button className="create-question-button" onClick={() => createQuestionPopup('trueFalse')}>Create True/False Question</button>
       <button className="create-question-button" onClick={() => createQuestionPopup('multipleChoice')}>Create Multiple Choice Question</button>
       <button className="create-question-button" onClick={() => createQuestionPopup('openResponse')}>Create Open Response Question</button>
+    
       {questionPopupType && (
         <QuestionPopup type={questionPopupType} onSave={saveQuestion} onClose={closeQuestionPopup} />
       )}
@@ -67,7 +75,10 @@ function TeacherAssessment({questions, setQuestions}) {
                     ? "Multiple Choice"
                     : "Open Response"}{""})
                   </span>
-                  <button className="canvas-delete-button" onClick={() => deleteQuestion(index)}>Delete Question</button>
+                  <div>
+                    {/* <button className="canvas-edit-button" onClick={() => editQuestion(index)}>Edit</button>*/}
+                    <button className="canvas-delete-button" onClick={() => deleteQuestion(index)}>Delete Question</button>
+                  </div>
               </div>  
               <div className="canvas-body">
                 {question.text}

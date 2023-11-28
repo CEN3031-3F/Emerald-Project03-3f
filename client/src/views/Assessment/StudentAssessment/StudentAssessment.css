@@ -11,6 +11,7 @@
     flex-direction: column;
     align-items: center; /* Center questions vertically */
     text-align: center;
+    
   }
   
   .popup {
@@ -24,6 +25,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
+    
   }
   
   .popup-content {
@@ -33,10 +35,12 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-size: 24px; /* Make the text much bigger */
+    
   }
   
   .popup.active {
     display: flex; /* Show the pop-up when it has the "active" class */
+    
   }
   
   .popup button {
@@ -46,6 +50,7 @@
     padding: 10px 20px;
     border-radius: 50%; /* Make the questions inside circular buttons */
     cursor: pointer;
+    
   }
   
   .popup button:hover {
@@ -56,10 +61,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
   }
   
   .options div {
     margin: 5px 0;
+    
+  }
+  .options label {
+    font-weight: normal; /* Ensure labels are not bold */
   }
 
   button.question-button {
@@ -72,6 +82,7 @@
     margin: 100px; /* Add margin to create space between buttons */
     transform: rotate(-45deg); /* Rotate the buttons diagonally */
     font-size: 24px; /* Make the text much bigger */
+    
   }
   
   button.question-button:hover {
@@ -84,6 +95,12 @@
     font-size: 45px; /* Adjust the font size as needed */
     font-weight: bold; /* Add or remove this property to control text weight */
   }
+
+  .canvas-questions{
+    font-weight:bold;
+  }
+ 
+  
 
   
   

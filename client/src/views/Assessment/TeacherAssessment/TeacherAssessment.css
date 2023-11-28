@@ -86,6 +86,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-top: 10px;
 }
 
 .create-question-button:hover {
@@ -189,3 +190,18 @@ input, select {
 .canvas-delete-button:hover {
   background-color: rgb(185, 185, 185);
 }
+
+
+.canvas-edit-button {
+  background-color: rgb(220, 220, 220);
+  border:rgb(105, 105, 105);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.canvas-edit-button:hover {
+  background-color: rgb(185, 185, 185);
+}
+

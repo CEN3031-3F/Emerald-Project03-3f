@@ -611,7 +611,7 @@ export const getAuthorizedWorkspaces = async () =>
     method: GET,
     path: `${server}/authorized-workspaces`,
     auth: true,
-    error: 'Unable to retrive cc workspaces',
+    error: 'Unable to retrive cc worksapces',
   });
 
 export const getAuthorizedWorkspace = async (id) =>
@@ -712,7 +712,7 @@ export const getClassroomWorkspace = async (id) =>
   });
 
   export const addQuestions = async (questions) => {
-    console.log(questions);
+
     const ids = [];
   
     // Use Promise.all to wait for all asynchronous operations to complete
@@ -727,8 +727,7 @@ export const getClassroomWorkspace = async (id) =>
           Question_type,
           Correct_Answer_enum,
         } = question;
-
-        console.log(question);
+  
         try {
           const response = await makeRequest({
             method: POST,
@@ -745,9 +744,7 @@ export const getClassroomWorkspace = async (id) =>
             auth: true,
             error: 'Failed to add questions.',
           });
-          
-          console.log(response.data);
-
+  
           // Push the new ID to the array
           ids.push(response.data.id.toString());
         } catch (error) {
@@ -773,3 +770,27 @@ export const getClassroomWorkspace = async (id) =>
     auth: true,
     error: 'Unable to delete assessment',
   });
+
+  export const getAssessment = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments/${id}`,
+    auth: true,
+    error: 'Unable to retrieve assessment',
+  });
+
+export const deleteQuestions = async (questions) =>
+{
+  await Promise.all(
+    questions.map((question) => 
+      {
+        makeRequest({
+          method: DELETE,
+          path: `${server}/questions/${question.id}`,
+          auth: true,
+          error: 'Unable to delete assessment',
+        });
+      }
+    )
+  )
+}

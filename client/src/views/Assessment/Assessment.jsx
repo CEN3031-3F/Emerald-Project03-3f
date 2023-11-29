@@ -9,6 +9,8 @@ function Assessment(props) {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log('props');
+      console.log(props);
       let dbresponse = await getAssessmentQuestions(assessmentId);
       const newQuestions = dbresponse.data.questions.map(item => {
         let type, options;
@@ -34,7 +36,7 @@ function Assessment(props) {
     };
     fetchData();
   }, [assessmentId]);
-
+  
   const handleAnswerChange = (index, value) => {
     const newAnswers = [...answers];
     newAnswers[index] = value;

@@ -7,7 +7,7 @@ import './Student.less';
 
 function Student() {
   const [assessmentList, setAssessmentList] = useState([]);
-  const [questionList, setQuestionList] = useState([]);
+  const [selectedAssessment, setSelectedAssessment] = useState(null);
   const [learningStandard, setLessonModule] = useState({});
   const navigate = useNavigate();
 
@@ -27,7 +27,6 @@ function Student() {
           const newAssessmentsList = wsResponse.data.filter(
             (item) => item.classroomId === Number(classroom_ID)
           );
-  
 
           setAssessmentList(newAssessmentsList);
         
@@ -47,14 +46,21 @@ function Student() {
     navigate('/workspace');
   };
 
-  const handleSelection_assessment = (assessment) => {
-    assessment.lesson_module_name = learningStandard.name;
-    localStorage.setItem('my-assessment', JSON.stringify(assessment));
-
-    console.log(learningStandard);
-
-    navigate('/assessments');
+  const handleAssessmentSelection = (assessment) => {
+    setSelectedAssessment(assessment);
   };
+
+  const wsColumn = [
+    {
+      title: 'Name',
+      dataIndex: 'Name',
+      key: 'Name',
+      editable: true,
+      width: '30%',
+      align: 'left',
+      render: (_, key) => key.Name,
+    },
+  ];
 
   return (
     <div className='container nav-padding'>
@@ -88,7 +94,31 @@ function Student() {
         <div id='header'>
           <div>Select Your Assessment</div>
         </div>
-        
+        <div id = 'assessment-tabs'>
+          {/*Display Assessments*/}
+          {assessmentList.map((assessment) => (
+            <div
+              key = {assessment.id}
+              className = 'assessment-tab'
+              onClick={() => handleAssessmentSelection(assessment)}
+            >
+              {assessment.title}
+            </div>
+          ))}
+        <div id = 'assessment-questions'>
+          {/*Display Questions*/}
+          {selectedAssessment && (
+          <div>
+            <h3>{selectedAssessment.title}</h3>
+            <ul>
+              {selectedAssessment.questions.map((question) => (
+                <li key={question.id}>{question.text}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        </div>
+        </div>
       </div>
     </div>
   );

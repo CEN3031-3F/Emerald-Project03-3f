@@ -23,13 +23,19 @@ function Student() {
             setLessonModule(res.data.lesson_module);
           }
           wsResponse = await getAssessments();
-          
+
+          const assessmentName = wsResponse.data[0].Name;
+          const assessmentID = wsResponse.data[0].id;
+
+          console.log(assessmentName);
+          console.log(assessmentID);
+
           const newAssessmentsList = wsResponse.data.filter(
             (item) => item.classroomId === Number(classroom_ID)
           );
 
           setAssessmentList(newAssessmentsList);
-        
+            console.log(newAssessmentsList);
         } 
         else {
           message.error(res.err);
@@ -42,12 +48,15 @@ function Student() {
   const handleSelection = (activity) => {
     activity.lesson_module_name = learningStandard.name;
     localStorage.setItem('my-activity', JSON.stringify(activity));
-
+    
     navigate('/workspace');
   };
 
   const handleAssessmentSelection = (assessment) => {
-    setSelectedAssessment(assessment);
+    console.log(assessment.questions);
+    localStorage.setItem('questions', JSON.stringify(assessment.questions))
+
+    navigate('/assessment');
   };
 
   const wsColumn = [
@@ -94,31 +103,28 @@ function Student() {
         <div id='header'>
           <div>Select Your Assessment</div>
         </div>
-        <div id = 'assessment-tabs'>
-          {/*Display Assessments*/}
-          {assessmentList.map((assessment) => (
-            <div
-              key = {assessment.id}
-              className = 'assessment-tab'
-              onClick={() => handleAssessmentSelection(assessment)}
-            >
-              {assessment.title}
+        <ul>
+          {assessmentList ? (
+            assessmentList
+              .sort((assessment1, assessment2) => assessment1.number - assessment2.number)
+              .map((assessment) => (
+                <div
+                  key={assessment.id}
+                  id='list-item-wrapper'
+                  onClick={() => handleAssessmentSelection(assessment)}
+                >
+                  <li>{assessment.Name}</li>
+                </div>
+              ))
+          ) : (
+            <div>
+              <p>There is currently no active learning standard set.</p>
+              <p>
+                When your classroom manager selects one, it will appear here.
+              </p>
             </div>
-          ))}
-        <div id = 'assessment-questions'>
-          {/*Display Questions*/}
-          {selectedAssessment && (
-          <div>
-            <h3>{selectedAssessment.title}</h3>
-            <ul>
-              {selectedAssessment.questions.map((question) => (
-                <li key={question.id}>{question.text}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        </div>
-        </div>
+          )}
+        </ul>
       </div>
     </div>
   );

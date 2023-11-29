@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Assessment.css';
+import NavBar from '../../components/NavBar/NavBar';
 
 function Assessment() {
   const [questions, setQuestions] = useState([]);
@@ -47,6 +48,7 @@ function Assessment() {
 
   return (
     <div className="Assessment">
+    <NavBar isStudent={true} />
       {questions.map((question, index) => (
         <div key={index} className="student-question">
           <div className="question-text">{index + 1}. {question.text}</div>

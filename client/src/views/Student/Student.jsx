@@ -158,7 +158,7 @@ function Student() {
     console.log(assessment.questions);
     localStorage.setItem('questions', JSON.stringify(assessment.questions))
 
-    navigate('/assessment/student');
+    navigate('/assessmentPage');
   };
 
   const wsColumn = [

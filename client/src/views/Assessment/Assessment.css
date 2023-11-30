@@ -1,6 +1,7 @@
 /* Assessment.css */
 
 .Assessment {
+  background-color: #007bff;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -13,12 +14,12 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin: 20px 0;
-  padding: 20px;
+  padding: 30px;
   width: 80%; /* Control the width of question containers */
 }
 
 .question-text {
-  font-size: 20px; /* Adjust font size for question text */
+  font-size: 24px; /* Adjust font size for question text */
   margin-bottom: 15px;
 }
 
@@ -26,12 +27,21 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 20px; /* Adjust font size for question text */
 }
 
 .options label {
   margin: 10px 0;
   cursor: pointer;
 }
+.options div {
+  margin: 5px 0;
+  
+}
+.options label {
+  font-weight: normal; /* Ensure labels are not bold */
+}
+
 
 input[type='radio'], input[type='checkbox'] {
   margin-right: 10px;
@@ -42,7 +52,8 @@ textarea {
   height: 100px; /* Set a fixed height */
   padding: 10px;
   margin-top: 10px;
-  border: 1px solid #ced4da;
+  border: px solid #ced4da;
+  color: #fff;
   border-radius: 4px;
   resize: none; /* Disable resizing */
 }

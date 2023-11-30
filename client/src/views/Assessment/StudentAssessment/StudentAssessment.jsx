@@ -2,7 +2,7 @@ import NavBar from '../../../components/NavBar/NavBar';
 import React, { useState } from 'react';
 import './StudentAssessment.css';
 import Switch from '../../../components/NavBar/Switch';
-import QuestionPopup from '../../../views/Assessment/TeacherAssessment/QuestionPopup';
+import QuestionPopup from './StudentQuestionPopup';
 
 
 function Assessment() {
@@ -26,18 +26,33 @@ function Assessment() {
   const [isOn, setIsOn] = useState(true);
   const [questionPopupType, setQuestionPopupType] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-
+/*
   const handleAnswerChange = (questionIndex, option) => {
     setSelectedAnswers({
       ...selectedAnswers,
       [questionIndex]: option
     });
   };
+  */
+  const handleAnswerChange = (questionIndex, option) => {
+    console.log("Selected option for question " + questionIndex + ": " + option);
+    setSelectedAnswers(prevAnswers => ({
+      ...prevAnswers, 
+      [questionIndex]: option 
+    }));
+  };
+  const logStuff = (questionIndex, option) => {
+    console.log("LOG");
+    
+  };
+
   const openPopup = (index) => {
     const newPopups = [...showPopups];
     newPopups[index] = true;
     setShowPopups(newPopups);
   };
+  
+  
 
   const closePopup = (index) => {
     const newPopups = [...showPopups];
@@ -91,12 +106,15 @@ return (
     </div>
     
     {questionPopupType && (
+      
       <QuestionPopup type={questionPopupType} onSave={saveQuestion} onClose={closeQuestionPopup} />
     )}
     {isOn && (
       <div className="canvas-questions">
         {questions.map((question, index) => (
-          <div className="canvas-question">
+          
+          <div className="canvas-question" key={index}>
+          
             <div className="canvas-header">
                 <span>
                   Question {index + 1} 
@@ -105,10 +123,13 @@ return (
             </div>  
             <div className="canvas-body">
               {question.text}
+              
             </div>
             <div className="options">
               {question.options.map((option, optionIndex) => (
+                
                 <div key={optionIndex}>
+                  
               
               <input
                 type="radio"
@@ -117,58 +138,63 @@ return (
                 value={option}
                 onChange={() => handleAnswerChange(index, option)}
                 checked={selectedAnswers[index] === option}
+                
               />
+              
               <label htmlFor={`question-${index}-option-${optionIndex}`}>{option}</label>
+              
             </div>
+            
               ))}
             </div>
+            
             { question.type !== "openResponse" &&
               <div className="canvas-correct-option-text">
                 
               </div>
             }
           </div>
+          
         ))}
       </div>
     )}
     {!isOn && (
-      <div className="diagonal-buttons">
-        {questions.map((question, index) => (
-          <button className="question-button" onClick={() => openPopup(index)}>Question {index + 1}</button>
-        ))}
-      </div>
-    )}
-    {questions.map((question, index) => (
-      <div key={index} className={`popup ${showPopups[index] ? 'active' : ''}`}>
-        <div className="popup-content">
-          
-          <div className="question-text">{index + 1}. {question.text}</div>
-          <div className="options">
-            {question.options.map((option, optionIndex) => (
-              <div key={optionIndex}>
-              
-              <input
-                type="radio"
-                name={`question-${index}`}
-                id={`question-${index}-option-${optionIndex}`}
-                value={option}
-                onChange={() => handleAnswerChange(index, option)}
-                checked={selectedAnswers[index] === option}
-              />
-              <label htmlFor={`question-${index}-option-${optionIndex}`}>{option}</label>
-            </div>
-            ))}
-          </div>
-          { question.type !== "openResponse" &&
-          <div className="correct-option-text">
-            
-          </div>
-          }
-          <button className="close-button" onClick={() => closePopup(index)}>Close</button>
-          
+      <React.Fragment>
+        <div className="diagonal-buttons">
+          {questions.map((question, index) => (
+            <button className="question-button" onClick={() => openPopup(index)}>Question {index + 1}</button>
+          ))}
         </div>
-      </div>
-    ))}
+        {questions.map((question, index) => (
+          <div key={index} className={`popup ${showPopups[index] ? 'active' : ''}`}>
+            <div className="popup-content">
+              <div className="question-text">{index + 1}. {question.text}</div>
+              <div className="options">
+                {question.options.map((option, optionIndex) => (
+                  <div key={optionIndex}>
+                    <input
+                      type="radio"
+                      name={`question-${index}`}
+                      id={`question-${index}-option-${optionIndex}`}
+                      value={option}
+                      onChange={() => handleAnswerChange(index, option)}
+                      checked={selectedAnswers[index] === option}
+                    />
+                    <label htmlFor={`question-${index}-option-${optionIndex}`}>{option}</label>
+                  </div>
+                ))}
+              </div>
+              {question.type !== "openResponse" &&
+                <div className="correct-option-text">
+                  
+                </div>
+              }
+              <button className="close-button" onClick={() => closePopup(index)}>Close</button>
+            </div>
+          </div>
+        ))}
+      </React.Fragment>
+    )}
   </div>
 );
 }

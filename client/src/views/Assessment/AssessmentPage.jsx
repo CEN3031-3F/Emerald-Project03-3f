@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Assessment.css';
-import { getAssessmentQuestions } from '../../Utils/requests';
+import NavBar from '../../components/NavBar/NavBar';
 
-function Assessment(props) {
+function Assessment() {
   const [questions, setQuestions] = useState([]);
+  const localQuestions = JSON.parse(localStorage.getItem('questions'));
   const [answers, setAnswers] = useState([]);
-  const { assessmentId } = props;
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('props');
-      console.log(props);
-      let dbresponse = await getAssessmentQuestions(assessmentId);
-      const newQuestions = dbresponse.data.questions.map(item => {
+      
+      const newQuestions = localQuestions.map(item => {
         let type, options;
         if (item.Choice_1_text === 'true' && item.Choice_2_text === 'false') {
           type = 'trueFalse';
@@ -35,7 +33,7 @@ function Assessment(props) {
       setAnswers(Array(newQuestions.length).fill(''));
     };
     fetchData();
-  }, [assessmentId]);
+  }, []);
   
   const handleAnswerChange = (index, value) => {
     const newAnswers = [...answers];
@@ -50,6 +48,7 @@ function Assessment(props) {
 
   return (
     <div className="Assessment">
+    <NavBar isStudent={true} />
       {questions.map((question, index) => (
         <div key={index} className="student-question">
           <div className="question-text">{index + 1}. {question.text}</div>

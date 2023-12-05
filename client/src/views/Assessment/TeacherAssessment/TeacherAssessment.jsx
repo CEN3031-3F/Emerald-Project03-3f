@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import QuestionPopup from './QuestionPopup';
 import Switch from '../../../components/NavBar/Switch';
 import './TeacherAssessment.css';
+import NavBar from '../../../components/NavBar/NavBar';
 
 function TeacherAssessment({questions2 = [], setQuestions}) {
   const questions = [
@@ -71,6 +72,7 @@ function TeacherAssessment({questions2 = [], setQuestions}) {
 
   return (
     <div className='container flex-row nav-padding'>
+      <NavBar isStudent={true} />
     
 
       <div className="right-container">

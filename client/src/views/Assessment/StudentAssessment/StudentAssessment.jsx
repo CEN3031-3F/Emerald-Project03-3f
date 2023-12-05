@@ -104,6 +104,7 @@ function Assessment() {
 
 return (
   <div className='container flex-row nav-padding'>
+    <NavBar isStudent={true} />
 
 <div className="right-container">
             <button className="create-tutorial-button" onClick={openTutorialPopUp}>Open Tutorial</button>

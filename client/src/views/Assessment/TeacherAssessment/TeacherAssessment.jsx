@@ -19,10 +19,16 @@ function TeacherAssessment({questions2 = [], setQuestions}) {
     },
   ];
 
-  const tutorialImages = ['/public/images/MC 1.png', '/public/images/MC 2.png']
+  const tutorialImages = ['/public/images/TV1.jpeg', '/public/images/TV2.jpeg','/public/images/TV3.jpeg', '/public/images/TV4.jpeg', '/public/images/TV5.jpeg', '/public/images/TV6.jpeg', '/public/images/TV7.jpeg', '/public/images/TV8.jpeg', '/public/images/TV9.jpeg', '/public/images/TV10.jpeg']
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
   const [questionPopupType, setQuestionPopupType] = useState(null);
   const [isOn, setIsOn] = useState(true);
+  const [openTutorial, setOpenTutorial] = useState(false);
+  const [idx, setIdx] = useState(0); // Start from the first image
+  
+  const openTutorialPopUp = () => {
+    setOpenTutorial(!openTutorial)
+  };
 
   const createQuestionPopup = (type) => {
     setQuestionPopupType(type);
@@ -64,6 +70,30 @@ function TeacherAssessment({questions2 = [], setQuestions}) {
   };
 
   return (
+    <div className='container flex-row nav-padding'>
+
+      <div className="right-container">
+        <button className="create-tutorial-button" onClick={openTutorialPopUp}>Open Tutorial</button>
+      </div>
+
+      {openTutorial && <div className="tutorialPopUp"> 
+      <div className='tutorial-content'>
+      
+      
+      <div className="top-container">
+      <button className ="close-tutorialButton" onClick={()=>openTutorialPopUp(setIdx(0))}>Close Tutorial</button>
+      </div>
+      
+      <div className='tut-image' style={{backgroundImage: `url('${tutorialImages[idx]}')` }}></div>
+
+      <div className="bottom-container">
+      <button className ="previous-button" onClick={() => setIdx(idx - 1)} disabled={idx == 0}>Previous</button>
+      <button className ="next-button" onClick={() => setIdx(idx + 1)} disabled={idx == tutorialImages.length - 1}>Next</button>
+      </div>
+      
+      </div>
+       </div>}
+
     <div className="Assessment">
       <div>
         <Switch
@@ -152,6 +182,7 @@ function TeacherAssessment({questions2 = [], setQuestions}) {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }

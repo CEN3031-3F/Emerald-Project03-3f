@@ -21,11 +21,13 @@ function Assessment() {
     },
 
   ];
-
+  const tutorialImages = ['/public/images/SV1.jpeg', '/public/images/SV2.jpeg','/public/images/SV3.jpeg', '/public/images/SV4.jpeg']
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
   const [isOn, setIsOn] = useState(true);
   const [questionPopupType, setQuestionPopupType] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [openTutorial, setOpenTutorial] = useState(false);
+  const [idx, setIdx] = useState(0); // Start from the first image
 /*
   const handleAnswerChange = (questionIndex, option) => {
     setSelectedAnswers({
@@ -44,6 +46,10 @@ function Assessment() {
   const logStuff = (questionIndex, option) => {
     console.log("LOG");
     
+  };
+
+  const openTutorialPopUp = () => {
+    setOpenTutorial(!openTutorial)
   };
 
   const openPopup = (index) => {
@@ -97,6 +103,30 @@ function Assessment() {
 */
 
 return (
+  <div className='container flex-row nav-padding'>
+
+<div className="right-container">
+            <button className="create-tutorial-button" onClick={openTutorialPopUp}>Open Tutorial</button>
+        </div>
+
+      {openTutorial && <div className="tutorialPopUp"> 
+      <div className='tutorial-content'>
+      
+      <div className="top-container">
+          <button className ="close-tutorialButton" onClick={()=>openTutorialPopUp(setIdx(0))}>Close Tutorial</button>
+      </div>
+
+      <div className='tut-image' style={{backgroundImage: `url('${tutorialImages[idx]}')` }}></div>
+
+      <div className="bottom-container">
+      <button className ="previous-button" onClick={() => setIdx(idx - 1)} disabled={idx == 0}>Previous</button>
+      <button className ="next-button" onClick={() => setIdx(idx + 1)} disabled={idx == tutorialImages.length - 1}>Next</button>
+      </div>
+
+      </div>
+
+       </div>}
+
   <div className="Assessment">
     <div>
       <Switch
@@ -195,6 +225,7 @@ return (
         ))}
       </React.Fragment>
     )}
+  </div>
   </div>
 );
 }

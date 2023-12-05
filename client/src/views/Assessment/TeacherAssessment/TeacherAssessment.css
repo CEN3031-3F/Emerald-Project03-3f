@@ -241,3 +241,144 @@ input, select {
   background-color: rgb(185, 185, 185);
 }
 
+.right-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-right: 0px; /* Adjust the margin as needed */
+}
+.left-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: 0px; /* Adjust the margin as needed */
+}
+
+.create-tutorial-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0px 30px; /* Increase padding to make the button larger */
+  border-radius: 90px;
+  cursor: pointer;
+  margin: 0px; /* Add margin to create space between buttons */
+  /*transform: rotate(-45deg); /* Rotate the buttons diagonally */
+  font-size: 24px; /* Make the text much bigger */
+}
+
+.create-tutorial-button:hover {
+  background-color: #0056b3;
+}
+
+.tutorialPopUp {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+}
+.tutorialPopUp::after{
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-content {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(255, 255, 255)
+}
+
+
+.tut-image{
+  height: 350px;
+  width: 100%;
+  background-size: cover;
+}
+
+.tutorialPopUp-buttons {
+  background-color: rgba(0, 255, 157, 0.999);
+  color: #fff;
+  border: none;
+  padding: 0px 30px; /* Increase padding to make the button larger */
+  border-radius: 90px;
+  cursor: pointer;
+  margin: 0px; /* Add margin to create space between buttons */
+  /*transform: rotate(-45deg); /* Rotate the buttons diagonally */
+  font-size: 15px; /* Make the text much bigger */
+}
+
+.tutorialPopUp-buttons:hover {
+  background-color: rgba(0, 255, 102, 0.622);
+}
+
+.previous-button {
+  background-color: rgb(80, 200, 120);
+  color: #fff;
+  border: none;
+  padding: 0px 30px; /* Increase padding to make the button larger */
+  border-radius: 90px;
+  cursor: pointer;
+  margin: 0px; /* Add margin to create space between buttons */
+  /*transform: rotate(-45deg); /* Rotate the buttons diagonally */
+  font-size: 15px; /* Make the text much bigger */
+  justify-self: start;
+  flex-basis: 0;
+}
+
+.next-button {
+  background-color: rgb(80, 200, 120);
+  color: #fff;
+  border: none;
+  padding: 0px 30px; /* Increase padding to make the button larger */
+  border-radius: 90px;
+  cursor: pointer;
+  margin: 0px; /* Add margin to create space between buttons */
+  /*transform: rotate(-45deg); /* Rotate the buttons diagonally */
+  font-size: 15px; /* Make the text much bigger */
+  justify-self: flex-end;
+  flex-basis: 0;
+}
+
+.bottom-container {
+  background-color: rgb(70, 130, 180);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.close-tutorialButton {
+  background-color: rgb(80, 200, 120);
+  color: #fff;
+  border: none;
+  padding: 0px 30px; /* Increase padding to make the button larger */
+  border-radius: 90px;
+  cursor: pointer;
+  margin: 0px; /* Add margin to create space between buttons */
+  /*transform: rotate(-45deg); /* Rotate the buttons diagonally */
+  font-size: 15px; /* Make the text much bigger */
+  justify-self: flex-end;
+}
+
+.top-container {
+  background-color: rgb(0, 130, 180);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+

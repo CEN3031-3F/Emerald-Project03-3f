@@ -57,6 +57,16 @@ const QuestionPopup = ({ type, onSave, onClose }) => {
         {type === "multipleChoice" && (
           <div>
           <div className="form-field">
+          <label>{String.fromCharCode(97 + index)}:</label>
+                <input
+                  type="radio"
+                  name={`question-options`}
+                  id={`option-${index}`}
+                  value={option}
+                  checked={selectedAnswers[questionIndex] === option}
+                  onChange={() => onAnswerChange(questionIndex, option)}
+                />
+                <label htmlFor={`option-${index}`}>{option}</label>
             <label>a:</label>
             <input
               type="text"

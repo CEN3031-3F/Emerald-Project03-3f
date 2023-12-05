@@ -22,6 +22,7 @@ import TeacherLogin from './views/TeacherLogin/TeacherLogin';
 import Assessment from './views/Assessment/Assessment';
 import TeacherAssessment from './views/Assessment/TeacherAssessment/TeacherAssessment';
 import StudentAssessment from './views/Assessment/StudentAssessment/StudentAssessment.jsx';
+import AssessmentPage from './views/Assessment/AssessmentPage';
 
 const App = () => {
   return (
@@ -120,6 +121,7 @@ const App = () => {
         <Route path='/assessment' element={<Assessment />} />
         <Route path='/assessment/teacher' element={<TeacherAssessment />} />
         <Route path='/assessment/student' element={<StudentAssessment />} />
+        <Route path='/assessmentPage' element={<AssessmentPage />} />
       </Routes>
     </div>
   );

@@ -1,6 +1,7 @@
 import { server } from './hosts';
 import axios from 'axios';
 import { getToken } from './AuthRequests';
+import isDate from 'date-fns/fp/isDate/index.js';
 
 const GET = 'GET';
 const PUT = 'PUT';
@@ -18,6 +19,9 @@ const makeRequest = async ({ method, path, data, auth = false, error }) => {
         },
       }
     : null;
+
+  console.log(path);
+  console.log(config);
 
   try {
     switch (method) {
@@ -610,14 +614,6 @@ export const getAuthorizedWorkspaces = async () =>
     error: 'Unable to retrive cc worksapces',
   });
 
-export const getAssessments = async () =>
-  makeRequest({
-  method: GET,
-  path: `${server}/assessments`,
-  auth: true,
-  error: 'Unable to retrive assessments',
-  });
-
 export const getAuthorizedWorkspace = async (id) =>
   makeRequest({
     method: GET,
@@ -672,13 +668,6 @@ export const deleteAuthorizedWorkspace = async (id) =>
     auth: true,
     error: 'Unable to delete cc workspace',
   });
-  export const deleteAssessment = async (id) =>
-  makeRequest({
-    method: DELETE,
-    path: `${server}/assessment/${id}`,
-    auth: true,
-    error: 'Unable to delete assessment',
-  });
 
 export const getClassroomWorkspace = async (id) =>
   makeRequest({
@@ -688,26 +677,120 @@ export const getClassroomWorkspace = async (id) =>
     error: 'Unable to retrive classroom workspaces',
   });
 
-  export const getAssessment = async (id) =>
-  makeRequest({
-    method: GET,
-    path: `${server}/classroom/assessments/${id}`,
-    auth: true,
-    error: 'Unable to retrive classroom assessments',
-  });
-
   // I used the addStudent as a template. I want the teacher to be able to hit an "add assessment" icon in the mentor classroom view's assessment
   // tab, and then they will be prompted to add questions an when they hit save, it will save the questions to the assessment and the assessment
   // to the database.
-  export const addAssessment = async (name, questions, classroom) =>
+  
+  export const addAssessment = async (name, classroomId, ids, description) =>
   makeRequest({
     method: POST,
     path: `${server}/assessments`,
     data: {
-      name: name,
-      questions: questions,
-      classroom: classroom,
+      Name: name,
+      classroomId: classroomId,
+      questions: ids,
+      description: description
     },
     auth: true,
     error: 'Failed to add assessment.',
   });
+
+  export const getAssessments = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments`,
+    auth: true,
+    error: 'Unable to retrive assessments',
+  });
+
+  export const getQuestions = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/questions`,
+    auth: true,
+    error: 'Unable to retrieve assessments',
+  });
+
+  export const addQuestions = async (questions) => {
+
+    const ids = [];
+  
+    // Use Promise.all to wait for all asynchronous operations to complete
+    await Promise.all(
+      questions.map(async (question) => {
+        const {
+          Question_text,
+          Choice_1_text,
+          Choice_2_text,
+          Choice_3_text,
+          Choice_4_text,
+          Question_type,
+          Correct_Answer_enum,
+        } = question;
+  
+        try {
+          const response = await makeRequest({
+            method: POST,
+            path: `${server}/questions`,
+            data: {
+              Question_text,
+              Choice_1_text,
+              Choice_2_text,
+              Choice_3_text,
+              Choice_4_text,
+              Question_type,
+              Correct_Answer_enum,
+            },
+            auth: true,
+            error: 'Failed to add questions.',
+          });
+  
+          // Push the new ID to the array
+          ids.push(response.data.id.toString());
+        } catch (error) {
+          console.error('Error adding question:', error);
+        }
+      })
+    );
+    return ids;
+  };
+
+  export const getAssessmentQuestions = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments/${id}`,
+    auth: true,
+    error: 'Unable to retrieve assessments',
+  });
+
+  export const deleteAssessment = async (id) =>
+  makeRequest({
+    method: DELETE,
+    path: `${server}/assessments/${id}`,
+    auth: true,
+    error: 'Unable to delete assessment',
+  });
+
+  export const getAssessment = async (id) =>
+  makeRequest({
+    method: GET,
+    path: `${server}/assessments/${id}`,
+    auth: true,
+    error: 'Unable to retrieve assessment',
+  });
+
+export const deleteQuestions = async (questions) =>
+{
+  await Promise.all(
+    questions.map((question) => 
+      {
+        makeRequest({
+          method: DELETE,
+          path: `${server}/questions/${question.id}`,
+          auth: true,
+          error: 'Unable to delete assessment',
+        });
+      }
+    )
+  )
+}

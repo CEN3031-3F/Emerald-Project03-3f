@@ -1,30 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './Assessment.css';
+import NavBar from '../../components/NavBar/NavBar';
 import Switch from '../../components/NavBar/Switch';
 import './StudentAssessment/StudentAssessment.css';
-import { getAssessmentQuestions } from '../../Utils/requests';
 
-function Assessment({ assessmentId }) {
+function Assessment() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [isOn, setIsOn] = useState(true);
   const [showPopups, setShowPopups] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const dbresponse = await getAssessmentQuestions(assessmentId);
-        const formattedQuestions = dbresponse.data.questions.map(formatQuestion);
-        setQuestions(formattedQuestions);
-        setAnswers(Array(formattedQuestions.length).fill(''));
-        setShowPopups(Array(formattedQuestions.length).fill(false));
-      } catch (error) {
-        console.error("Error fetching questions:", error);
-      }
-    };
-
-    fetchData();
-  }, [assessmentId]);
+    const localQuestions = JSON.parse(localStorage.getItem('questions')) || [];
+    const formattedQuestions = localQuestions.map(formatQuestion);
+    setQuestions(formattedQuestions);
+    setAnswers(Array(formattedQuestions.length).fill(''));
+    setShowPopups(Array(formattedQuestions.length).fill(false));
+  }, []);
 
   const formatQuestion = (item) => {
     let type, options;
@@ -57,6 +49,7 @@ function Assessment({ assessmentId }) {
 
   return (
     <div className="Assessment">
+      <NavBar isStudent={true} />
       <Switch isOn={isOn} handleToggle={() => setIsOn(!isOn)} />
 
       {isOn ? (
@@ -97,6 +90,8 @@ function Assessment({ assessmentId }) {
         style={{ color: 'white', backgroundColor: '#007bff', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', marginTop: '20px' }}>
         Submit Answers
       </button>
+      <footer className="footer">
+        </footer>
     </div>
   );
 }

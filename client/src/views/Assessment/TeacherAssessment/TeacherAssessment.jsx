@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import QuestionPopup from './QuestionPopup';
+import Switch from '../../../components/NavBar/Switch';
 import './TeacherAssessment.css';
 
 function TeacherAssessment({questions2 = [], setQuestions}) {
@@ -21,11 +22,7 @@ function TeacherAssessment({questions2 = [], setQuestions}) {
   const tutorialImages = ['/public/images/MC 1.png', '/public/images/MC 2.png']
   const [showPopups, setShowPopups] = useState(Array(questions.length).fill(false));
   const [questionPopupType, setQuestionPopupType] = useState(null);
-  const [openTutorial, setOpenTutorial] = useState(false);
-  
-  const openTutorialPopUp = () => {
-    setOpenTutorial(!openTutorial)
-  };
+  const [isOn, setIsOn] = useState(true);
 
   const createQuestionPopup = (type) => {
     setQuestionPopupType(type);
@@ -59,29 +56,71 @@ function TeacherAssessment({questions2 = [], setQuestions}) {
     setShowPopups(newPopups);
   };
 
+  const editQuestion = () => {
+    console.log('Button clicked!');
+    //if(index==='')
+    createQuestionPopup('trueFalse')
+    
+  };
+
   return (
     <div className="Assessment">
+      <div>
+        <Switch
+          isOn={isOn}
+          handleToggle={() => setIsOn(!isOn)}
+        />
+      </div>
       <button className="create-question-button" onClick={() => createQuestionPopup('trueFalse')}>Create True/False Question</button>
       <button className="create-question-button" onClick={() => createQuestionPopup('multipleChoice')}>Create Multiple Choice Question</button>
       <button className="create-question-button" onClick={() => createQuestionPopup('openResponse')}>Create Open Response Question</button>
-      <button className="create-question-button" onClick={openTutorialPopUp}>Open Tutorial</button>
-      {openTutorial && <div className="tutorialPopUp"> 
-      <div className='tutorial-content'>
-      Tutorial
-      <button className="create-question-button" onClick={openTutorialPopUp}>Previous</button>
-      <button className="create-question-button" onClick={openTutorialPopUp}>Next</button>
-      <div className='tut-image' style={{backgroundImage: `url('${tutorialImages[0]}')` }}></div>
-      </div>
-       </div>}
-
+    
       {questionPopupType && (
         <QuestionPopup type={questionPopupType} onSave={saveQuestion} onClose={closeQuestionPopup} />
       )}
-      <div className="diagonal-buttons">
-        {questions.map((question, index) => (
-          <button className="question-button" onClick={() => openPopup(index)}>Question {index + 1}</button>
-        ))}
-      </div>
+      {isOn && (
+        <div className="canvas-questions">
+          {questions.map((question, index) => (
+            <div className="canvas-question">
+              <div className="canvas-header">
+                  <span>
+                    Question {index + 1} ({question.type === "trueFalse"
+                    ? "True/False"
+                    : question.type === "multipleChoice"
+                    ? "Multiple Choice"
+                    : "Open Response"}{""})
+                  </span>
+                  <div>
+                    {/* <button className="canvas-edit-button" onClick={() => editQuestion(index)}>Edit</button>*/}
+                    <button className="canvas-delete-button" onClick={() => deleteQuestion(index)}>Delete Question</button>
+                  </div>
+              </div>  
+              <div className="canvas-body">
+                {question.text}
+              </div>
+              <div className="options">
+                {question.options.map((option, optionIndex) => (
+                  <div key={optionIndex}>
+                    {String.fromCharCode(97 + optionIndex)}) {option}
+                  </div>
+                ))}
+              </div>
+              { question.type !== "openResponse" &&
+                <div className="canvas-correct-option-text">
+                  Correct Answer: {question.correctOption}
+                </div>
+              }
+            </div>
+          ))}
+        </div>
+      )}
+      {!isOn && (
+        <div className="diagonal-buttons">
+          {questions.map((question, index) => (
+            <button className="question-button" onClick={() => openPopup(index)}>Question {index + 1}</button>
+          ))}
+        </div>
+      )}
       {questions.map((question, index) => (
         <div key={index} className={`popup ${showPopups[index] ? 'active' : ''}`}>
           <div className="popup-content">

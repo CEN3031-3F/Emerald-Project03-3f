@@ -1,76 +1,73 @@
 /* Assessment.css */
 
 .Assessment {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center questions vertically */
-    text-align: center;
-  }
-  
-  .popup {
-    display: none; /* Initially hide the pop-up */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-  
-  .popup-content {
-    background-color: #fff;
-    color: #000; /* Set text color to black */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    font-size: 24px; /* Make the text much bigger */
-  }
-  
-  .popup.active {
-    display: flex; /* Show the pop-up when it has the "active" class */
-  }
-  
-  .popup button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50%; /* Make the questions inside circular buttons */
-    cursor: pointer;
-  }
-  
-  .popup button:hover {
-    background-color: #0056b3;
-  }
-  
-  .options {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .options div {
-    margin: 5px 0;
-  }
+  background-color: #007bff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center questions vertically */
+  text-align: center;
+}
 
-  button.question-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 60px 90px; /* Increase padding to make the button larger */
-    border-radius: 90px;
-    cursor: pointer;
-    margin: 100px; /* Add margin to create space between buttons */
-    transform: rotate(-45deg); /* Rotate the buttons diagonally */
-    font-size: 24px; /* Make the text much bigger */
-  }
+.student-question {
+  background-color: #f8f9fa; /* Light background for question container */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+  padding: 30px;
+  width: 80%; /* Control the width of question containers */
+}
+
+.question-text {
+  font-size: 24px; /* Adjust font size for question text */
+  margin-bottom: 15px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 20px; /* Adjust font size for question text */
+}
+
+.options label {
+  margin: 10px 0;
+  cursor: pointer;
+}
+.options div {
+  margin: 5px 0;
   
-  button.question-button:hover {
-    background-color: #0056b3;
-  }
-  
-  
+}
+.options label {
+  font-weight: normal; /* Ensure labels are not bold */
+}
+
+
+input[type='radio'], input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+textarea {
+  width: 100%; /* Full width of container */
+  height: 100px; /* Set a fixed height */
+  padding: 10px;
+  margin-top: 10px;
+  border: px solid #ced4da;
+  color: #fff;
+  border-radius: 4px;
+  resize: none; /* Disable resizing */
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px; /* Rounded corners for buttons */
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

@@ -2,15 +2,15 @@
 
 .Assessment {
     background-color: white;
-    padding: 80px;
-    border: 20px solid #3d5c82;
-    border-radius: 70px;
-    margin-top: 2%; /* Adjust the margin as needed to create space between the text and the white box */
+    padding: 30px;
+    border: 40px solid #3d5c82;
+    margin-top: 4.1%; /* Adjust the margin as needed to create space between the text and the white box */
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center questions vertically */
     text-align: center;
+    
   }
   
   .popup {
@@ -24,6 +24,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
+    
   }
   
   .popup-content {
@@ -35,43 +36,17 @@
     font-size: 24px; /* Make the text much bigger */
   }
   
-  .popup.active {
-    display: flex; /* Show the pop-up when it has the "active" class */
-  }
-  
-  .popup button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50%; /* Make the questions inside circular buttons */
-    cursor: pointer;
-  }
-  
-  .popup button:hover {
-    background-color: #0056b3;
-  }
-  
-  .options {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .options div {
-    margin: 5px 0;
-  }
-
   button.question-button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 60px 90px; /* Increase padding to make the button larger */
-    border-radius: 90px;
+    padding: 50px 50px; /* Increase padding to make the button larger */
+    border-radius: 45px;
     cursor: pointer;
-    margin: 100px; /* Add margin to create space between buttons */
+    margin:10%; /* Add margin to create space between buttons */
     transform: rotate(-45deg); /* Rotate the buttons diagonally */
     font-size: 24px; /* Make the text much bigger */
+    
   }
   
   button.question-button:hover {
@@ -85,5 +60,11 @@
     font-weight: bold; /* Add or remove this property to control text weight */
   }
 
-  
-  
+  .canvas-questions{
+    margin-top: 20px;
+    width: 100%;
+    padding-left: 20%;
+    padding-right: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+  }

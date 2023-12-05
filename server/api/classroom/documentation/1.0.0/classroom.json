@@ -1015,40 +1015,6 @@
                 }
               }
             }
-          },
-          "assessments": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "template": {
-                  "type": "string"
-                },
-                "classroom": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },
@@ -1094,12 +1060,6 @@
             }
           },
           "authorized_workspaces": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "assessments": {
             "type": "array",
             "items": {
               "type": "string"

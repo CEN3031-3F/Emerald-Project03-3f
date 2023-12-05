@@ -11,18 +11,17 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "name": {
+    "questions": {
+      "collection": "questions"
+    },
+    "Name": {
       "type": "string"
     },
     "description": {
       "type": "string"
     },
-    "template": {
-      "type": "string"
-    },
-    "classroom": {
-      "model": "classroom",
-      "via": "assessments"
+    "classroomId": {
+      "type": "integer"
     }
   }
 }

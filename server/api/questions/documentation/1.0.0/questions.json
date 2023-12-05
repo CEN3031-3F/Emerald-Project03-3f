@@ -522,28 +522,38 @@
           "id": {
             "type": "string"
           },
-          "MC_3": {
-            "type": "string",
-            "enum": [
-              "one",
-              "two",
-              "three"
-            ]
-          },
-          "MC_4": {
-            "type": "string",
-            "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
-            ]
-          },
-          "FreeResponse": {
+          "Question_text": {
             "type": "string"
           },
-          "T_F": {
-            "type": "boolean"
+          "Choice_1_text": {
+            "type": "string"
+          },
+          "Choice_2_text": {
+            "type": "string"
+          },
+          "Choice_3_text": {
+            "type": "string"
+          },
+          "Choice_4_text": {
+            "type": "string"
+          },
+          "Question_type": {
+            "type": "string",
+            "enum": [
+              "MC_3",
+              "MC_4",
+              "FR",
+              "TF"
+            ]
+          },
+          "Correct_Answer_enum": {
+            "type": "string",
+            "enum": [
+              "C1",
+              "C2",
+              "C3",
+              "C4"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -553,28 +563,38 @@
       },
       "NewQuestions": {
         "properties": {
-          "MC_3": {
-            "type": "string",
-            "enum": [
-              "one",
-              "two",
-              "three"
-            ]
-          },
-          "MC_4": {
-            "type": "string",
-            "enum": [
-              "one",
-              "two",
-              "three",
-              "four"
-            ]
-          },
-          "FreeResponse": {
+          "Question_text": {
             "type": "string"
           },
-          "T_F": {
-            "type": "boolean"
+          "Choice_1_text": {
+            "type": "string"
+          },
+          "Choice_2_text": {
+            "type": "string"
+          },
+          "Choice_3_text": {
+            "type": "string"
+          },
+          "Choice_4_text": {
+            "type": "string"
+          },
+          "Question_type": {
+            "type": "string",
+            "enum": [
+              "MC_3",
+              "MC_4",
+              "FR",
+              "TF"
+            ]
+          },
+          "Correct_Answer_enum": {
+            "type": "string",
+            "enum": [
+              "C1",
+              "C2",
+              "C3",
+              "C4"
+            ]
           },
           "published_at": {
             "type": "string",

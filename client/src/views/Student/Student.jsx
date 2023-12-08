@@ -173,6 +173,9 @@ function Student() {
     },
   ];
 
+// I added the section below activity in order to retrieve the assessments
+// from the database similar to how the activities were retrieved
+
   return (
     <div className='container nav-padding'>
       <NavBar />

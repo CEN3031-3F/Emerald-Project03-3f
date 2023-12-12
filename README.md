@@ -179,8 +179,15 @@ Before submitting a pull request, rebase the feature branch into the target bran
 ### How to update database and server connections
 
 ### Update the database and STRAPI dump files in your file directory
+Done by Sam Reasor on 12/12/23 at 1:36 pm
 
 ### Outstanding work
+- Fritzing and Code Block questions are not supported by our assessment currently.
+- Implementation of an "Update" button on the mentor view so teachers can edit existing assessments.
+- Grading and question submission is not implemented yet.
 
 ### Built Upon
+- We created functionality within the mentor view to allow teachers to create assessments and publish them to classrooms. 
+- Students are assigned a classroom, and all students within a classroom will be able to view the assessments created in that classroom
+
 

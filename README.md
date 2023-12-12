@@ -142,3 +142,45 @@ Before submitting a pull request, rebase the feature branch into the target bran
 
 - PRs to **master** should squash and merge
 - PRs to all other branches should create a merge commit
+
+### Features
+- Add new assessments to database or delete assessments.
+![C557C690-454E-49FD-809F-E34A23F81B93_1_201_a](https://github.com/CEN3031-3F/Emerald-Project03-3f/assets/100593849/bdce05d1-fdf5-477b-a2a9-4f4b5ecc025a)
+![76CC2EF8-35BC-4E43-BC9E-BDB294EAA604_1_201_a](https://github.com/CEN3031-3F/Emerald-Project03-3f/assets/100593849/91c55595-1777-4510-8b31-77c4253a75db)
+
+- Retrieve assessments from database
+- Link assessment data between Student
+- Print the assessments to the Student view
+- Create toggle switch
+![64627067-8D49-4274-87EA-8E463AE37040_1_201_a](https://github.com/CEN3031-3F/Emerald-Project03-3f/assets/100593849/b857911a-f7ab-405a-84e5-aec45ef7d07d)
+
+- Create the traditional question design (more like canvas style)
+![2B64B4CD-121A-4703-B258-F6978FFE6C01](https://github.com/CEN3031-3F/Emerald-Project03-3f/assets/100593849/476b5e1a-029b-4a78-be71-ec13dbba6bd4)
+
+- Implement the toggle switch and the nw question design in both of the student and teacher view. 
+- Implement a intuitive tutorial for the assessment application we are implementing
+![3EF72579-BCA1-43DF-B477-96C3C3F321A6](https://github.com/CEN3031-3F/Emerald-Project03-3f/assets/100593849/a976a11c-6ec0-41b6-b0b3-76aa90350b18)
+
+- Implement the fritzing questions and code block questions
+
+### How to run the project locally
+- Run yarn start from client in project folder
+- Open docker
+## Teacher
+- http://localhost:3000/teacherlogin
+- Email: headmaster@hogwarts.com
+- Password: easypassword
+## Student
+- http://localhost:3000/
+- Join Code: 1997
+- Remove a student
+- Choose Harry P. pass:🦉  to get student view
+
+### How to update database and server connections
+
+### Update the database and STRAPI dump files in your file directory
+
+### Outstanding work
+
+### Built Upon
+

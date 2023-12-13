@@ -63,7 +63,13 @@ The development environment is composed of five servers. The first one is run wi
 
 ### Staging
 
-### random comment
+### Instructions for deployment
+
+1. Open a terminal window and run the command “docker compose up” in the home directory. 
+2. Then open another terminal window and run “cd client” and then “yarn start”
+3. Go to http://localhost:1337/admin and login with username superadmin@mail.com and password TN9q6RZhDaw6 to get access to the database.
+4. Open a new browser tab and go to http://localhost:3000/teacherlogin and login with username headmaster@hogwarts.com and password easypassword to get teacher view.
+5. Open a new browser tab and go to http://localhost:3000 and enter code 1997 , remove a student, and choose Harry P. pass:🦉to get student view
 
 #### Structure
 
